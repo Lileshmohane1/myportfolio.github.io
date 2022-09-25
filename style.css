@@ -458,3 +458,37 @@ header .navbar ul li a:hover{
     }
 
  }
+.skills .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding:1rem 0;
+    padding-left: 4rem;
+}
+
+* {box-sizing:border-box}
+.container {
+    width: 100%;
+    background-color: rgb(231, 231, 231);
+    border-radius: 20px;
+}
+
+.skills {
+    text-align: center;
+    font-weight: bolder;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: white;
+    border-radius: 20px;
+}
+
+.html {width: 90%; background-color: #c2d422;} /* Green */
+.css {width: 60%; background-color: #d3e434;} /* Blue */
+.js {width: 10%; background-color: #e1e73f;} /* Red */
+.c {width: 70%; background-color: #b5b52d;}
+.cpp {width: 80%; background-color: #b5b52d;}
+.py {width: 60%; background-color: #b5b52d;}
+.dj {width: 60%; background-color: #b5b52d;} 
+.dsa {width: 60%; background-color: #b5b52d;}/* Dark Grey */
+
