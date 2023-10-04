@@ -93,6 +93,9 @@ a:hover {
   background-color: black;
   transition: all 0.3 ease-in-out;
 }
+.hamburger-icon:hover{
+  text-decoration-color: rgb(181, 181, 181);
+}
 
 .menu-links {
   position: absolute;
