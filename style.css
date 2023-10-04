@@ -1,7 +1,35 @@
-
-    /* GENERAL */
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+    /* GENERAL */
+:root{
+    --primary-color: #ffffff;
+    --secondary-color:#212121;
+   
+    --green:green;
+    --black: black;
+    --light-color:brown;
+    --box-shadow: .5rem 1.5rem rgba(0,0,0,.1);
+}
+#dark{
+    width: 30px;
+    cursor: pointer;
+}
+.darks{
+    color: var(--secondary-color);
+    cursor: pointer;
+    margin-left: .2rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    width: 2.5rem;
+    text-align:center;
+    font-size: 1.0rem;
+    border-radius: 20%;
+    background: var(--primary-color);
+   
+}
+.dark-theme{
+    --primary-color: #212121;
+    --secondary-color: #ffffff;
+}
 
 * {
   margin: 0;
@@ -10,6 +38,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
+     background-color: var(--primary-color);
 }
 
 html {
@@ -161,7 +190,16 @@ section {
 }
 
 .section-container {
-  display: flex;
+    display: grid;
+   grid-template-columns:  repeat(auto-fit, minmax(25rem ,1fr));
+    gap: 4rem;
+      padding: 2.5rem;
+    background: var(--primary-color);
+    border: .1rem solid var(--primary-color);
+    box-shadow: 2px 1px 1px 1px ;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
 }
 
 /* PROFILE SECTION */
@@ -178,6 +216,7 @@ section {
   height: 400px;
   width: 400px;
   margin: auto 0;
+    
 }
 
 .section__text {
@@ -276,7 +315,9 @@ section {
   margin-bottom: 2rem;
   margin-top: 2rem;
 }
-
+.section-container{
+    
+}
 .about-details-container {
   justify-content: center;
   flex-direction: column;
