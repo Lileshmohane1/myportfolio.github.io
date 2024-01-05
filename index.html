@@ -1,80 +1,148 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
+    <meta name="robots" content="index, follow">
+
+    <!-- title -->
+    <title>Lilesh Mohane - Portfolio</title>
+    <meta property="og:title" content="Lilesh Mohane - Portfolio" />
+    <meta name="twitter:title" content="Lilesh Mohane - Portfolio" />
+    <!-- keywords -->
+    <meta name="keywords" content="Lilesh Mohane,Lilesh, portfolio, portfolio, website developer">
+    <!-- url -->
+    <link rel="canonical" href="https://lileshmohane1.github.io/myportfolio.github.io/" />
+    <meta property="og:url" content="https://lileshmohane1.github.io/myportfolio.github.io/" />
+    <meta name="twitter:url" content="https://lileshmohane1.github.io/myportfolio.github.io/" />
+    <!-- description -->
+    <meta name="description"
+      content="Lilesh is a MERN stack web developer and  Data sciencefrom India who has expertise in developing user-friendly responsive websites using HTML5, CSS3, JavaScript, Tailwind, Bootstrap, ReactJs etc. and he is a keen learner. To have a discussion, get in touch with him today!" />
+    <meta property="og:description"
+      content="Lilesh is a MERN stack web developer and  Data science from India who has expertise in developing user-friendly responsive websites using HTML5, CSS3, JavaScript, Tailwind, Bootstrap, ReactJs etc. and he is a keen learner. To have a discussion, get in touch with him today!" />
+    <meta name="twitter:description"
+      content="Lilesh is a MERN stack web developer and Data science  from India who has expertise in developing user-friendly responsive websites using HTML5, CSS3, JavaScript, Tailwind, Bootstrap, ReactJs etc. and he is a keen learner. To have a discussion, get in touch with him today!" />
+    <!-- image -->
+    <meta property="og:image" content="images/android-chrome-192x192.png" />
+    <meta name="twitter:image" content="images/android-chrome-192x192.png"/>
+    <!-- og tags -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="lileshmohane" />
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary" />
+    <!-- ////  favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="image\icon.jpeg" />
+    <link rel="icon" type="image/jpeg" sizes="32x32" href="image\icon.jpeg" />
+    <link rel="icon" type="image/jpeg" sizes="16x16" href="image\icon.jpeg" />
+    <link rel="manifest" href="manifest.json" />
+    <!-- /// theme color /// -->
+    <meta name="theme-color" content="#343d68" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/portfolio.css" />
+    <!-- <link rel="stylesheet" href="mediaqueries.css" /> -->
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <nav id="desktop-nav">
-      <div class="logo">  Lilesh Mohane</div>
-      <div>
-        <ul class="nav-links">
+    <!-- mobile nav -->
+    <div class="overlay"></div>
+    <div class="hamburger">
+      <span></span>
+    </div>
+    
+    <nav class="nav-div mobile-nav">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">projects</a></li>
+        <li><a href="#skills">skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">contact me</a></li>
+      </ul>
+    </nav>
+
+    <!-- loading animation -->
+    <!-- <div class="loader"> -->
+      <div class="lds-ripple">
+        <div></div>
+        <div></div>
+    </div>
+    <!-- </div> -->
+
+    <!-- ///////// header /////////-->
+    <header class="container">
+      <a class="logo-div" href="#">
+        <img src="image\icon.jpeg" alt="" />
+        <span class="name">Lilesh</span>
+      </a>
+
+      <nav class="nav-div">
+        <ul>
           <li><a href="#about">About</a></li>
+          <li><a href="#projects">projects</a></li>
+          <li><a href="#skills">skills</a></li>
           <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-          
+          <li><a href="#contact">contact me</a></li>
         </ul>
-         <img src="moon.png" alt="" id="dark" class="darks">
+      </nav>
+    </header>
+
+    <!-- ////////// hero section ////////// -->
+    <section class="hero-section container">
+      <div class="faded-text">Lilesh Mohane</div>
+
+      <!-- left -->
+      <div class="hero-section-left">
+        <h1 class="name">Hi! Lilesh Mohane</h1>
+        <p class="profession">I am a <span class="role"></span></p>
+        <p class="desc">
+          I’m a software developer and it is my portfolio website. Here you’ll
+          learn about my journey as a software developer.
+        </p>
+        <a class="btn" href="assets\LILESH-MOHANE-Resume-1.pdf" target="_blank" download>Resume</a>
       </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">Lilesh Mohane</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+
+      <!-- right -->
+      <div class="hero-section-right">
+        <div class="my-image">
+          <img src="images\userAsset\lilesh mohane.png" width="350" height="400" alt=""/>
         </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+
+        <div class="icon-zigzag">
+          <img src="images/userAsset/zigzags.png" alt="" />
+        </div>
+
+        <div class="icon-plus">
+          <img src="images/userAsset/plus.png" alt="" />
+        </div>
+
+        <div class="icon-cube">
+          <img src="images/userAsset/cube.png" alt="" />
+        </div>
+
+        <div class="icon-circle">
+          <img src="images/userAsset/circle.png" alt="" />
+        </div>
+
+        <div class="icon-dots">
+          <img src="images/userAsset/dots.png" alt="" />
         </div>
       </div>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="image\lilesh mohane.png" alt="Lilesh Mohane profile picture" />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Lilesh Mohane</h1>
-        <p class="section__text__p2">Data Science </p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./ass/resume-example.pdf')"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
-        </div>
-        <div id="socials-container">
-          <img
-            src="./image/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-              <a href="https://www.linkedin.com/in/lilesh-mohane-5952b7203/"></a>
-              <img
-            src="./image/github.png"
-            alt="My Github profile"
-            class="icon"
-            https://github.com/Lileshmohane
-                  <a href="https://github.com/Lileshmohane"></a>
-          />
-          
-        </div>
+
+      <!-- button for small screens -->
+      <a class="btn extra-btn" href="assets\LILESH-MOHANE-Resume-1.pdf" target="_blank" download>Download CV</a>
       
-      </div>
     </section>
+
+       <!-- about me  -->
+
     <section id="about">
       <p class="section__text__p1">Get To Know More</p>
       <h1 class="title">About Me</h1>
@@ -105,336 +173,503 @@
                 <h3>10th mp bord </h3>
                 <p>i am pass out 10 class in year 2018</p>
             </div>
-        
+
             <div class="box">
-                <i class="fas fa-graduation-cap"></i>
-                <span>2020</span>
-                <h3>12th mp bord</h3>
-                <p>i am pass out 12 class in year 2020</p>
-            </div>
-        
-            <div class="box">
-                <i class="fas fa-graduation-cap"></i>
-                <span>2020- 2024</span>
-                <h3>Btech</h3>
-                <p>currently i am study in Samrat Ashok Technological Institute Vidisha  Branch: (ARTIFICIAL INTELLIGENCE AND DATA SCIENCE) </p>
-            </div>
+              <i class="fas fa-graduation-cap"></i>
+              <span>2020</span>
+              <h3>12th mp bord</h3>
+              <p>i am pass out 12 class in year 2020</p>
           </div>
-          <div class="text-container">
-          
+      
+          <div class="box">
+              <i class="fas fa-graduation-cap"></i>
+              <span>2020- 2024</span>
+              <h3>Btech</h3>
+              <p>currently i am study in Samrat Ashok Technological Institute Vidisha  Branch: (ARTIFICIAL INTELLIGENCE AND DATA SCIENCE) </p>
           </div>
         </div>
+        <div class="text-container">
+        
+        </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
-    </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">web Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="image\html5.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>HTML</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="image\css-3.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>CSS</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
+    </div>
+    <img
+      src="./assets/arrow.png"
+      alt="Arrow icon"
+      class="icon arrow"
+      onclick="location.href='./#experience'"
+    />
+  </section>
+
+
+      <!--experience  -->
+      <section id="experience">
+        <p class="section__text__p1">Explore My</p>
+        <h1 class="title">Experience</h1>
+        <div class="experience-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <h2 class="experience-sub-title">web Development</h2>
+              <div class="article-container">
+                <article>
+                  <img
+                    src="image\html5.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>HTML</h3>
+                    <p>Experienced</p>
+                  </div>
+                </article>
+                <article>
+                  <img
+                    src="image\css-3.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>CSS</h3>
+                    <p>Experienced</p>
+                  </div>
+                </article>
+               
+                <article>
+                  <img
+                    src="image\javascript-js.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>JavaScript</h3>
+                    <p>Basic</p>
+                  </div>
+                </article>
+                <article>
+                  <img
+                    src="image\MySQL-logo.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>mysql</h3>
+                    <p>Basic</p>
+                  </div>
+                </article>
+                <article>
+                  <img
+                    src="image\mongodb-logo-4A71340576-seeklogo.com.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>mongodb</h3>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+                <article>
+                  <img
+                    src="image\django-logo-F46C1DD95E-seeklogo.com.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>django</h3>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="details-container">
+              <h2 class="experience-sub-title">Data Science</h2>
+              <div class="article-container">
+                <article>
+                  <img
+                    src="image\python-logo.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>python</h3>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+                <article>
+                  <img
+                    src="image/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>Statistics</h3>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+                <article>
+                  <img
+                    src="./image/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>Machine learning</h3>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+                <article>
+                  <img
+                    src="./image/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>Git</h3>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+  
+                <article>
+                  <img
+                    src="./image/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>Deep learning</h3>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+  
+                <article>
+                  <img
+                    src="./image/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>Computer vision</h3>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+  
+                <article>
+                  <img
+                    src="./image/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>Natural language processing</h3>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+                <article>
+                  <img
+                    src="./image/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>Big Data</h3>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img
+          src="./assets/arrow.png"
+          alt="Arrow icon"
+          class="icon arrow"
+          onclick="location.href='./#projects'"
+        />
+      </section>
+
+    <!-- /////// projects section /////////// -->
+    <section class="project-section" id="projects">
+      <h2 class="project-header">projects</h2>
+
+      <div class="project-container container">
+        <!-- //// -->
+        <div class="project-card" id="project-1">
+          <img src="image\OIP.jpeg" alt="" height="100%" width="100%"/>
+          <div class="project-number">01</div>
+          <div class="project-content">
+            <div class="project-skills-container">
+              <img src="images/stack/HTML.png" alt="html" />
+              <img src="images/stack/CSS.png" alt="css" />
+              <img src="images/stack/Javascript.svg" alt="javascript" />
+              <img
+              src="image\MySQL-logo.png"
+              alt="Experience icon"
+              class="icon"
+            />
+            <img
+            src="image\django-logo-F46C1DD95E-seeklogo.com.png"
+            alt="Experience icon"
+            class="icon"
+          />
+          <img
+          src="image\python-logo.png"
+          alt="Experience icon"
+          class="icon"
+        />
+            </div>
+
+            <h2>Attendance management system</h2>
+
+            <p>
              
-              <article>
-                <img
-                  src="image\javascript-js.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>JavaScript</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="image\MySQL-logo.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>mysql</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="image\mongodb-logo-4A71340576-seeklogo.com.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>mongodb</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="image\django-logo-F46C1DD95E-seeklogo.com.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>django</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-            </div>
-          </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Data Science</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="image\python-logo.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>python</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="image/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Statistics</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./image/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Machine learning</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./image/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Git</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
+              Designed and developed a cutting-edge Attendance Management System that 
+             leverages face recognition technology to streamline attendance tracking and enhance 
+             security within an organizational setting.
+              Technologies Use d : Python, OpenCV, TensorFlow,Django (for the backend), 
+             HTML/CSS/JavaScript (for the frontend), and SQL databases for this project
+            </p>
 
-              <article>
-                <img
-                  src="./image/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Deep learning</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
+            <div class="project-buttons">
+              <a class="btn" href="https://github.com/Lileshmohane/face-recognition-based-attendance-system'" target="_blank">
+                Read More
+                <span class="screen-reader-text">learn more</span>
+              </a>
+              <a href="#" target="_blank" aria-label="github">
+                <i class="fa-brands fa-github icons"></i>
+              </a>
 
-              <article>
-                <img
-                  src="./image/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Computer vision</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-
-              <article>
-                <img
-                  src="./image/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Natural language processing</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./image/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Big Data</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
+              <a href="https://github.com/Lileshmohane/face-recognition-based-attendance-system'" target="_blank" aria-label="link">
+                <i class="fa-solid fa-link icons"></i>
+              </a>
             </div>
           </div>
         </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
-    </section>
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-1.png"
-                alt="Project 1"
-                class="project-img"
-              />
+        <!-- ///// -->
+
+        <!-- //// -->
+        <div class="project-card" id="project-2">
+          <img src="image\farmer.jpeg" alt=""  height="100%" width="100%"/>
+          <div class="project-number">02</div>
+          
+          <div class="project-content">
+            <div class="project-skills-container">
+              <img src="images/stack/HTML.png" alt="" />
+              <img src="images/stack/CSS.png" alt="" />
+              <img src="images/stack/Javascript.svg" alt="" />
             </div>
-            <h2 class="experience-sub-title project-title">Project One</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Lileshmohane/mlproject'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Lileshmohane/face-recognition-based-attendance-system'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-2.png"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Two</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-3.png"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Three</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
+
+            <h2>FARMING YIELD PROGNOSIS </h2>
+
+            <p>
+              The project aims to have a positive impact on agriculture by providing farmers with actionable insights, fostering resilience against uncertainties, and contributing to sustainable farming practices.
+              Technological Focus - K Nearest Neighbors (KNN):
+              Streamlit for User Interaction:
+            </p>
+
+            <div class="project-buttons">
+              <a class="btn" href="#" target="_blank">
+                Read More
+                <span class="screen-reader-text">learn more</span>
+              </a>
+              <a href="https://github.com/Lileshmohane/FARMING-YIELD-PROGNOSIS" target="_blank" aria-label="github">
+                <i class="fa-brands fa-github icons"></i>
+              </a>
+
+              <a href="https://github.com/Lileshmohane/FARMING-YIELD-PROGNOSIS" target="_blank" aria-label="link">
+                <i class="fa-solid fa-link icons"></i>
+              </a>
             </div>
           </div>
         </div>
+        <!-- ///// -->
+
+        <!-- //// -->
+        <div class="project-card" id="project-3">
+          <img src="image\portfolio.png" alt="" height="100%" width="100%" />
+          <div class="project-number">03</div>
+          <div class="project-content">
+            <div class="project-skills-container">
+              <img src="images/stack/HTML.png" alt="" />
+              <img src="images/stack/CSS.png" alt="" />
+              <img src="images/stack/Javascript.svg" alt="" />
+            </div>
+
+            <h2>Portfolio</h2>
+
+            <p>
+              Designed and developed a personal portfolio website to showcase my skills, projects, and experiencesTechnologies : HTML|CSS|JAVASCRIPT
+            </p>
+
+            <div class="project-buttons">
+              <a class="btn" href="#" target="_blank">
+                Read More
+                <span class="screen-reader-text">learn more</span>
+              </a>
+              <a href="https://lileshmohane1.github.io/myportfolio.github.io/" target="_blank" aria-label="github">
+                <i class="fa-brands fa-github icons"></i>
+              </a>
+
+              <a href="https://lileshmohane1.github.io/myportfolio.github.io/" target="_blank" aria-label="link">
+                <i class="fa-solid fa-link icons"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- ///// -->
+
+  
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
     </section>
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
+
+
+
+    <!-- ////////////////// skills section //////// -->
+    <section class="skill-section" id="skills">
+      <div class="skill-section-content container">
+        <div class="skill-fadded-text">skills</div>
+        <div class="skill-section-left">
+          <h2 class="skill-section-heading">
+            <span>M</span>e and <br />MyTech Stack
+          </h2>
+
+         
+        </div>
+
+        <div class="skill-section-right">
           <img
-            src="./image/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
+            src="images/userAsset/blob vector.png"
+            class="blob-style"
+            alt=""
           />
-          <p><a href="mailto:examplemail@gmail.com">lileshmohane2002@gmail.com</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./image/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/lilesh-mohane-5952b7203/">LinkedIn</a></p>
+          <img src="images/stack/HTML.png" alt="" />
+          <img src="images/stack/CSS.png" alt="" />
+          <img src="images/stack/Javascript.svg" alt="" />
+          <img src="images/stack/Tailwind.png" alt="" />
+          <img src="images/stack/Bootstrap.svg" alt="" />
+
+          <img src="images/stack/MongoDB.svg" alt="" />
+          <img src="images/stack/Express.png" alt="" />
+          <img src="images/stack/React.png" alt="" />
+          <img src="image\python-logo.png" alt="" />
+          <img src="image\MySQL-logo.png" alt="" />
+          <img src="image\mongodb-logo-4A71340576-seeklogo.com.png" alt="" />
+          <img src="image\django-logo-F46C1DD95E-seeklogo.com.png" alt="" />
+          <img src="images/stack/Git.svg" alt="" />
+          <img src="images/stack/Github.svg" alt="" />
+
+       
+         <img src="images/stack/Docker.svg" alt="" /> 
+  
         </div>
       </div>
     </section>
+
+    <!-- //////////////// contact section ////////// -->
+    <section class="contact-section" id="contact">
+      <div class="contact-section-content container">
+        <h2 class="contact-section-heading">Contact Me</h2>
+        <h3 class="contact-section-sub-heading">
+          Questions, thoughts, or just want to say hello?
+        </h3>
+
+        <form action="#" class="contact-form" id="contact-form">
+          <div class="form-field">
+            <input type="text" 
+            name="name"
+            placeholder="Enter your name" 
+            required/>
+          </div>
+
+          <div class="form-field">
+            <input type="email"
+             name="email"
+             placeholder="Enter your email address"
+             required />
+          </div>
+
+          <div class="form-field">
+            <input type="tel" 
+            name="phone"
+            placeholder="Enter your Mobile number"
+             />
+          </div>
+
+          <div class="form-field">
+            <textarea
+              name=""
+              id="messageArea"
+              cols="30"
+              rows="10"
+              placeholder="Enter your message"
+            ></textarea>
+          </div>
+
+          <div class="button-field">
+            <button type="submit" class="btn form-btn">
+              Send Message
+              <i class="fa-solid fa-paper-plane icon"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- //////////// footer ///////////// -->
     <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+      <div class="footer-content container">
+        <div class="footer-fadded-text">Lilesh</div>
+
+        <nav class="nav-div">
+          <ul>
+            <li><a href="#projects">projects</a></li>
+            <li><a href="#skills">skills</a></li>
+            <li><a href="#contact">contact me</a></li>
           </ul>
+        </nav>
+
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/lilesh-mohane-5952b7203/" target="_blank" aria-label="linkedin account">
+            <i class="fa-brands fa-linkedin icon"></i>
+          </a>
+
+          <a href="https://github.com/Lileshmohane" target="_blank" aria-label="github account">
+            <i class="fa-brands fa-github icon"></i>
+          </a>
+
+          <a href="https://twitter.com/LileshMohane" target="_blank" aria-label="twitter account">
+            <i class="fa-brands fa-twitter icon"></i>
+          </a>
+
+          <a href="https://www.instagram.com/Nikhil_mohane_1/" target="_blank" aria-label="instagram account">
+            <i class="fa-brands fa-instagram icon"></i>
+          </a>
+
+          <a href="mailto:examplemail@gmail.com">lileshmohane2002@gmail.com</a>
+            <i class="fa-regular fa-envelope icon"></i>
+          </a>
         </div>
-      </nav>
-      <p>Copyright &#169; 2023 lilesh mohane. All Rights Reserved.</p>
+      </div>
     </footer>
-    <script src="script.js"></script>
+    <!-- ///// -->
+
+    <!-- /////// scripts /// -->
+
+        
+    <script>
+      if ("serviceWorker" in navigator) { 
+        navigator.serviceWorker.register("sw.js").then(registration => {
+          console.log("SW Registered!");
+          // console.log(registration);
+        }).catch(error => {
+          console.log("SW Registration Failed!");
+          console.log(error);
+      });
+    }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="js/script.js"></script>
+
+
+   
   </body>
 </html>
