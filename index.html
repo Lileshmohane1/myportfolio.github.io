@@ -1,713 +1,598 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lilesh Mohane — Frontend Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#06060a;--bg2:#0d0d14;--bg3:#13131c;
+  --border:#ffffff0f;--border2:#ffffff1e;--border3:#ffffff30;
+  --accent:#7c6ff7;--accent2:#a78bfa;--accent3:#38bdf8;--accent4:#f472b6;
+  --text:#eeeef5;--muted:#77778a;--card:#0e0e16;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;overflow-x:hidden;cursor:none}
 
-    <!-- title -->
-    <title>Lilesh Mohane - Portfolio</title>
-    <meta property="og:title" content="Lilesh Mohane - Portfolio" />
-    <meta name="twitter:title" content="Lilesh Mohane - Portfolio" />
-    <!-- keywords -->
-    <meta name="keywords" content="Lilesh Mohane,Lilesh, portfolio, portfolio, website developer">
-    <!-- url -->
-    <link rel="canonical" href="https://lileshmohane1.github.io/myportfolio.github.io/" />
-    <meta property="og:url" content="https://lileshmohane1.github.io/myportfolio.github.io/" />
-    <meta name="twitter:url" content="https://lileshmohane1.github.io/myportfolio.github.io/" />
-    <!-- description -->
-    <meta name="description"
-      content="Lilesh is a MERN stack web developer and  Data sciencefrom India who has expertise in developing user-friendly responsive websites using HTML5, CSS3, JavaScript, Tailwind, Bootstrap, ReactJs etc. and he is a keen learner. To have a discussion, get in touch with him today!" />
-    <meta property="og:description"
-      content="Lilesh is a MERN stack web developer and  Data science from India who has expertise in developing user-friendly responsive websites using HTML5, CSS3, JavaScript, Tailwind, Bootstrap, ReactJs etc. and he is a keen learner. To have a discussion, get in touch with him today!" />
-    <meta name="twitter:description"
-      content="Lilesh is a MERN stack web developer and Data science  from India who has expertise in developing user-friendly responsive websites using HTML5, CSS3, JavaScript, Tailwind, Bootstrap, ReactJs etc. and he is a keen learner. To have a discussion, get in touch with him today!" />
-    <!-- image -->
-    <meta property="og:image" content="images/android-chrome-192x192.png" />
-    <meta name="twitter:image" content="images/android-chrome-192x192.png"/>
-    <!-- og tags -->
-    <meta property="og:type" content="website"/>
-    <meta property="og:site_name" content="lileshmohane" />
-    <meta property="og:locale" content="en_US">
-    <meta name="twitter:card" content="summary" />
-    <!-- ////  favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="image\icon.jpeg" />
-    <link rel="icon" type="image/jpeg" sizes="32x32" href="image\icon.jpeg" />
-    <link rel="icon" type="image/jpeg" sizes="16x16" href="image\icon.jpeg" />
-    <link rel="manifest" href="manifest.json" />
-    <!-- /// theme color /// -->
-    <meta name="theme-color" content="#343d68" />
+#cur{position:fixed;width:10px;height:10px;background:var(--accent2);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+#cur-ring{position:fixed;width:38px;height:38px;border:1.5px solid var(--accent2);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.4;transition:width .25s,height .25s,opacity .25s}
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="css/portfolio.css" />
-    <!-- <link rel="stylesheet" href="mediaqueries.css" /> -->
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <!-- mobile nav -->
-    <div class="overlay"></div>
-    <div class="hamburger">
-      <span></span>
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:8999;opacity:.5}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:800;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 3rem;background:rgba(6,6,10,.65);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:all .3s}
+.nav-logo{font-family:'Instrument Serif',serif;font-size:1.4rem;letter-spacing:-.02em}
+.nav-logo em{color:var(--accent2);font-style:normal}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);text-decoration:none;letter-spacing:.12em;text-transform:uppercase;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--accent2);transition:width .3s}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after{width:100%}
+
+/* HERO */
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 4rem;gap:4rem;position:relative;overflow:hidden}
+
+.mesh{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);animation:orbF 8s ease-in-out infinite}
+.orb:nth-child(1){width:500px;height:500px;background:radial-gradient(circle,rgba(124,111,247,.18),transparent 70%);top:-150px;left:-100px;animation-duration:9s}
+.orb:nth-child(2){width:400px;height:400px;background:radial-gradient(circle,rgba(56,189,248,.1),transparent 70%);bottom:-100px;left:30%;animation-duration:11s;animation-delay:-3s}
+.orb:nth-child(3){width:350px;height:350px;background:radial-gradient(circle,rgba(244,114,182,.07),transparent 70%);top:20%;right:-80px;animation-duration:7s;animation-delay:-5s}
+@keyframes orbF{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-28px) scale(1.05)}}
+.gdots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.055) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%)}
+
+.hero-left{z-index:2;position:relative;will-change:transform,opacity}
+.badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;border:1px solid var(--border3);border-radius:999px;font-family:'DM Mono',monospace;font-size:.68rem;color:var(--accent2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:2rem;background:rgba(167,139,250,.05)}
+.badge::before{content:'';width:6px;height:6px;background:#4ade80;border-radius:50%;box-shadow:0 0 8px #4ade80;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.4)}}
+
+h1.hname{font-size:clamp(3.2rem,5.5vw,5.8rem);font-weight:800;line-height:.95;letter-spacing:-.04em;margin-bottom:1.2rem}
+.hname .wrd{display:inline-block;overflow:hidden;vertical-align:bottom}
+.hname .wi{display:inline-block;transform:translateY(110%);opacity:0;animation:wup .9s cubic-bezier(.16,1,.3,1) forwards}
+.hname .w2 .wi{animation-delay:.1s}.hname .w3 .wi{animation-delay:.2s;color:var(--accent2)}
+@keyframes wup{to{transform:translateY(0);opacity:1}}
+
+.typed-row{font-family:'DM Mono',monospace;font-size:1rem;color:var(--accent3);margin-bottom:1.5rem;min-height:1.6em;display:flex;align-items:center;gap:.3rem}
+.tp{color:var(--muted)}.blink{animation:bl .7s step-end infinite}
+@keyframes bl{50%{opacity:0}}
+
+.hdesc{font-family:'DM Mono',monospace;font-size:.88rem;color:var(--muted);line-height:1.9;max-width:420px;font-weight:300;animation:fin 1s .4s both}
+@keyframes fin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.hstats{display:flex;gap:2.5rem;margin:2.5rem 0;animation:fin 1s .5s both}
+.hsn{font-size:2.2rem;font-weight:800;line-height:1}.hsn span{font-size:1.2rem;color:var(--accent2)}
+.hsl{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--muted);margin-top:.25rem;letter-spacing:.08em}
+
+.hbtns{display:flex;gap:.9rem;flex-wrap:wrap;animation:fin 1s .6s both}
+.btp{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.8rem;background:var(--accent);color:#fff;border-radius:6px;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;text-decoration:none;transition:all .25s;position:relative;overflow:hidden}
+.btp:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(124,111,247,.4)}
+.bto{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.8rem;border:1px solid var(--border3);color:var(--text);border-radius:6px;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;text-decoration:none;transition:all .25s;background:transparent}
+.bto:hover{border-color:var(--accent2);color:var(--accent2);transform:translateY(-2px)}
+
+/* 3D IMAGE */
+.hero-right{z-index:2;display:flex;justify-content:center;align-items:center;position:relative}
+
+.stage{perspective:900px;perspective-origin:50% 45%;width:360px;height:460px;position:relative}
+.ring{position:absolute;border-radius:50%;border:1px solid;pointer-events:none;animation:rF 5s ease-in-out infinite}
+.r1{width:430px;height:430px;top:-35px;left:-35px;border-color:rgba(124,111,247,.18);animation-duration:6s}
+.r2{width:350px;height:350px;top:5px;left:5px;border-color:rgba(56,189,248,.13);animation-duration:8s;animation-delay:-2.5s}
+.r3{width:270px;height:270px;top:45px;left:45px;border-color:rgba(244,114,182,.1);animation-duration:5s;animation-delay:-4s}
+@keyframes rF{0%,100%{transform:rotate(0deg)}50%{transform:rotate(4deg) scale(1.02)}}
+
+.c3d{width:100%;height:100%;position:relative;transform-style:preserve-3d;transform:rotateY(-12deg) rotateX(8deg);transition:transform .6s cubic-bezier(.16,1,.3,1);will-change:transform}
+
+/* The gradient border frame */
+.cframe{position:absolute;inset:-3px;border-radius:25px;z-index:-1;padding:3px;background:linear-gradient(135deg,#7c6ff7,#38bdf8,#f472b6,#7c6ff7);background-size:300% 300%;animation:gradShift 5s ease infinite}
+.cframe::before{content:'';position:absolute;inset:3px;border-radius:22px;background:var(--bg)}
+@keyframes gradShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+/* Glow blob */
+.cglow{position:absolute;width:130%;height:130%;top:-15%;left:-15%;border-radius:50%;background:radial-gradient(ellipse,rgba(124,111,247,.3) 0%,transparent 65%);filter:blur(50px);z-index:-2;animation:gP 4s ease-in-out infinite;pointer-events:none}
+@keyframes gP{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.1);opacity:1}}
+
+/* Photo face */
+.cface{position:absolute;inset:0;border-radius:22px;overflow:hidden}
+.cface img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .5s ease}
+.c3d:hover .cface img{transform:scale(1.04)}
+
+/* Gloss sheen */
+.cface::after{content:'';position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,.14) 0%,transparent 45%,rgba(0,0,0,.28) 100%);pointer-events:none;z-index:1}
+
+/* Floating 3D tags — translateZ makes them pop off */
+.ftag{position:absolute;background:rgba(10,10,20,.9);backdrop-filter:blur(20px) saturate(1.5);border:1px solid var(--border3);border-radius:14px;padding:.85rem 1.2rem;z-index:20;animation:tagFloat 3s ease-in-out infinite}
+.ft1{top:-22px;left:-28px;animation-delay:0s}
+.ft2{bottom:-22px;right:-28px;animation-delay:-1.5s}
+.ft3{top:38%;right:-36px;animation-delay:-0.8s}
+@keyframes tagFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.ft-icon{font-size:1.1rem;margin-bottom:.3rem}
+.ft-lbl{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.22rem}
+.ft-val{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;color:var(--text)}
+
+.scroll-hint{position:absolute;bottom:-56px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;font-family:'DM Mono',monospace;font-size:.58rem;color:var(--muted);letter-spacing:.12em;animation:sh 2s ease-in-out infinite;pointer-events:none}
+@keyframes sh{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-5px)}}
+.sarr{width:16px;height:16px;border-right:1px solid var(--muted);border-bottom:1px solid var(--muted);transform:rotate(45deg);margin-top:-4px}
+
+/* ABOUT */
+#about{background:var(--bg2);padding:8rem 4rem;position:relative;overflow:hidden}
+.abg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,111,247,.03),transparent 50%,rgba(56,189,248,.03));pointer-events:none}
+.alines{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.aln{position:absolute;height:1px;width:100%;background:linear-gradient(90deg,transparent 0%,rgba(167,139,250,.18) 50%,transparent 100%);animation:lsw 5s ease-in-out infinite}
+.aln:nth-child(1){top:20%;animation-delay:0s}
+.aln:nth-child(2){top:50%;animation-delay:-1.8s}
+.aln:nth-child(3){top:78%;animation-delay:-3.5s}
+@keyframes lsw{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;position:relative;z-index:2}
+
+.stag{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--accent2);letter-spacing:.22em;text-transform:uppercase;display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem}
+.stag::before{content:'';width:22px;height:1px;background:var(--accent2)}
+.stitle{font-size:clamp(2.2rem,3.8vw,3.4rem);font-weight:800;letter-spacing:-.03em;margin-bottom:2rem;line-height:1.05}
+.stitle em{color:var(--accent2);font-style:italic;font-family:'Instrument Serif',serif}
+
+.apara{font-family:'DM Mono',monospace;font-size:.83rem;color:var(--muted);line-height:2;margin-bottom:1.3rem;font-weight:300}
+.aquote{position:relative;margin:2.5rem 0;padding:1.5rem 2rem;border-left:2px solid var(--accent2);background:linear-gradient(135deg,rgba(124,111,247,.07),rgba(124,111,247,.02));border-radius:0 12px 12px 0}
+.aquote::before{content:'❝';position:absolute;top:-18px;left:1.4rem;font-size:2.2rem;color:var(--accent2);opacity:.35;font-family:'Instrument Serif',serif;line-height:1}
+.aquote p{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.02rem;color:var(--text);line-height:1.7;opacity:.85}
+
+.edu-row{display:flex;align-items:start;gap:1.2rem;padding:.8rem 0;border-bottom:1px solid var(--border)}
+.edu-row:last-child{border-bottom:none}
+.edot{width:8px;height:8px;border-radius:50%;background:var(--accent2);margin-top:.4rem;flex-shrink:0;box-shadow:0 0 8px var(--accent2)}
+.eyr{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--accent3);margin-bottom:.2rem}
+.edeg{font-size:.9rem;font-weight:700}
+.eschl{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);margin-top:.2rem}
+
+.acards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem}
+.acard{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.3rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.acard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent3));transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.acard:hover{border-color:var(--border3);transform:translateY(-3px)}
+.acard:hover::before{transform:scaleX(1)}
+.ai{font-size:1.3rem;margin-bottom:.7rem}
+.albl{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.35rem}
+.aval{font-size:.9rem;font-weight:700}
+.aval.g{color:#4ade80}.aval.sm{font-size:.75rem;font-family:'DM Mono',monospace;color:var(--accent3);font-weight:400}
+
+.tagcloud{display:flex;flex-wrap:wrap;gap:.45rem}
+.tcl{font-family:'DM Mono',monospace;font-size:.68rem;padding:.32rem .75rem;border-radius:999px;border:1px solid var(--border2);color:var(--muted);transition:all .25s;cursor:default}
+.tcl:hover,.tcl.hot{border-color:rgba(167,139,250,.4);color:var(--accent2);background:rgba(124,111,247,.08)}
+
+/* EXPERIENCE */
+#experience{padding:7rem 4rem;background:var(--bg)}
+.timeline{position:relative;padding-left:2rem;margin-top:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--accent),rgba(124,111,247,.2),transparent)}
+.titem{position:relative;padding-left:2.5rem;margin-bottom:3.5rem}
+.tdot{position:absolute;left:-2.45rem;top:.5rem;width:10px;height:10px;background:var(--accent2);border-radius:50%;box-shadow:0 0 14px var(--accent2)}
+.tdate{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--accent3);letter-spacing:.1em;margin-bottom:.4rem}
+.tco{font-size:.8rem;color:var(--muted);font-family:'DM Mono',monospace;margin-bottom:.3rem}
+.trole{font-size:1.4rem;font-weight:700;margin-bottom:1rem}
+.tpts{list-style:none}
+.tpts li{font-family:'DM Mono',monospace;font-size:.8rem;color:var(--muted);padding:.35rem 0 .35rem 1.2rem;position:relative;line-height:1.65}
+.tpts li::before{content:'→';position:absolute;left:0;color:var(--accent2)}
+
+/* PROJECTS */
+#projects{padding:7rem 4rem;background:var(--bg2)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1.5rem;margin-top:2rem}
+.pcard{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:2rem;position:relative;overflow:hidden;transition:all .35s cubic-bezier(.16,1,.3,1);cursor:none}
+.pcard::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(124,111,247,.09),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.pcard:hover{border-color:var(--border3);transform:translateY(-6px)}.pcard:hover::after{opacity:1}
+.pnum{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent2);letter-spacing:.15em;margin-bottom:.8rem}
+.ptitle{font-size:1.25rem;font-weight:700;margin-bottom:.7rem}
+.pdesc{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted);line-height:1.85;margin-bottom:1.4rem}
+.pstack{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.4rem}
+.stk{font-family:'DM Mono',monospace;font-size:.65rem;padding:.28rem .65rem;border-radius:4px;border:1px solid var(--border2);color:var(--accent3)}
+.plink{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--accent2);text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;transition:gap .2s}
+.plink:hover{gap:.65rem}
+
+/* SKILLS */
+#skills{padding:7rem 4rem;background:var(--bg)}
+.skcont{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem}
+.skgrp{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1.8rem}
+.skgtitle{font-size:.95rem;font-weight:700;margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem}
+.skgtitle::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 8px var(--accent2)}
+.ski{margin-bottom:1.3rem}
+.skih{display:flex;justify-content:space-between;margin-bottom:.35rem}
+.sknm{font-family:'DM Mono',monospace;font-size:.8rem}
+.skpct{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--accent2)}
+.skbar{height:3px;background:var(--border2);border-radius:2px;overflow:hidden}
+.skfill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width 1.3s cubic-bezier(.16,1,.3,1);border-radius:2px}
+
+/* CONTACT */
+#contact{padding:7rem 4rem;background:var(--bg2);text-align:center;position:relative;overflow:hidden}
+.cglow{position:absolute;width:600px;height:400px;background:radial-gradient(ellipse,rgba(124,111,247,.12),transparent 70%);left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none}
+.csub{font-family:'DM Mono',monospace;font-size:.82rem;color:var(--muted);max-width:480px;margin:0 auto 2rem;line-height:1.9;font-weight:300}
+.cemail{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.6rem;color:var(--accent2);margin-bottom:2.5rem;display:block}
+.clinks{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.clink{display:flex;align-items:center;gap:.55rem;padding:.8rem 1.8rem;background:var(--card);border:1px solid var(--border2);border-radius:8px;color:var(--text);text-decoration:none;font-family:'DM Mono',monospace;font-size:.78rem;transition:all .25s;cursor:none}
+.clink:hover{border-color:var(--accent2);color:var(--accent2);transform:translateY(-3px)}
+
+footer{padding:1.8rem 4rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+footer p{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--muted)}
+footer em{color:var(--accent2);font-style:normal}
+
+.rev{opacity:0;transform:translateY(28px);transition:opacity .75s,transform .75s cubic-bezier(.16,1,.3,1)}
+.rev2{opacity:0;transform:translateY(28px);transition:opacity .75s .12s,transform .75s .12s cubic-bezier(.16,1,.3,1)}
+.rev.vis,.rev2.vis{opacity:1;transform:none}
+
+@media(max-width:800px){
+  #hero{grid-template-columns:1fr;padding:5.5rem 1.5rem 5rem;gap:3rem}
+  .hero-right{justify-content:center}
+  .stage{width:280px;height:360px}
+  .ft1,.ft2,.ft3{display:none}
+  .about-grid{grid-template-columns:1fr!important}
+  #about,#experience,#projects,#skills,#contact{padding:5rem 1.5rem}
+  nav{padding:1rem 1.5rem}
+  footer{flex-direction:column;gap:.5rem;text-align:center}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<nav>
+  <div class="nav-logo">L<em>.</em>Mohane</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="mesh"><div class="orb"></div><div class="orb"></div><div class="orb"></div></div>
+  <div class="gdots"></div>
+
+  <div class="hero-left" id="heroLeft">
+    <div class="badge">● Available for opportunities</div>
+    <h1 class="hname">
+      <span class="wrd w1"><span class="wi">Hi,</span></span>&nbsp;
+      <span class="wrd w2"><span class="wi">I'm</span></span>&nbsp;<br>
+      <span class="wrd w3"><span class="wi">Lilesh.</span></span>
+    </h1>
+    <div class="typed-row">
+      <span class="tp">// </span><span id="typed"></span><span class="blink">_</span>
     </div>
-    
-    <nav class="nav-div mobile-nav">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">projects</a></li>
-        <li><a href="#skills">skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">contact me</a></li>
+    <p class="hdesc">Frontend Developer crafting dynamic, responsive interfaces with React.js. 1+ year shipping production-grade UIs for enterprise clients like Canon &amp; PepsiCo.</p>
+    <div class="hstats">
+      <div><div class="hsn">1<span>+</span></div><div class="hsl">Years Exp</div></div>
+      <div><div class="hsn">6<span>+</span></div><div class="hsl">Projects</div></div>
+      <div><div class="hsn">7.68</div><div class="hsl">CGPA</div></div>
+    </div>
+    <div class="hbtns">
+      <a href="#projects" class="btp">View Work →</a>
+      <a href="#contact" class="bto">Get In Touch</a>
+    </div>
+  </div>
+
+  <!-- 3D IMAGE -->
+  <div class="hero-right">
+    <div class="stage" id="stage">
+      <div class="ring r1"></div>
+      <div class="ring r2"></div>
+      <div class="ring r3"></div>
+
+      <div class="c3d" id="card3d">
+        <div class="cframe"></div>
+        <div class="cglow"></div>
+        <div class="cface" id="cface">
+          <img id="heroImg"
+            src="https://lileshmohane1.github.io/myportfolio.github.io/image/IMG_20220716_231417_926.jpg"
+            alt="Lilesh Mohane"
+            style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block"
+          >
+        </div>
+        <!-- 3D floating info tags -->
+        <div class="ftag ft1">
+          <div class="ft-icon">⚡</div>
+          <div class="ft-lbl">Primary Stack</div>
+          <div class="ft-val">React.js</div>
+        </div>
+        <div class="ftag ft2">
+          <div class="ft-lbl">Current Role</div>
+          <div class="ft-val">Software Engineer</div>
+        </div>
+        <div class="ftag ft3">
+          <div class="ft-lbl">Based In</div>
+          <div class="ft-val">🇮🇳 Indore</div>
+        </div>
+      </div>
+
+      <div class="scroll-hint"><span>SCROLL</span><div class="sarr"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="abg"></div>
+  <div class="alines"><div class="aln"></div><div class="aln"></div><div class="aln"></div></div>
+  <div class="about-grid">
+    <div class="rev">
+      <div class="stag">Who I Am</div>
+      <h2 class="stitle">Crafting code<br>with <em>purpose</em><br>&amp; precision.</h2>
+      <p class="apara">I'm a Frontend Developer with 1+ year building dynamic, responsive web applications using React.js. I blend clean code with thoughtful UI/UX to deliver interfaces users genuinely enjoy.</p>
+      <p class="apara">Graduated B.Tech in AI & Data Science from SATI Vidisha. Currently shipping production-grade frontend at KodVix Technologies, Indore for enterprise clients including Canon and PepsiCo.</p>
+      <div class="aquote">
+        <p>My expertise now bridges beautiful frontends and powerful backends — FastAPI, Docker, PostgreSQL and Azure are part of my growing toolkit.</p>
+      </div>
+      <div style="margin-top:2rem">
+        <div class="stag" style="margin-bottom:1rem">Education</div>
+        <div class="edu-row">
+          <div class="edot"></div>
+          <div><div class="eyr">2020 – 2024</div><div class="edeg">B.Tech — AI & Data Science</div><div class="eschl">Samrat Ashok Technological Institute, Vidisha · CGPA 7.68</div></div>
+        </div>
+        <div class="edu-row">
+          <div class="edot" style="background:var(--accent3);box-shadow:0 0 8px var(--accent3)"></div>
+          <div><div class="eyr">2020</div><div class="edeg">12th — MP Board</div><div class="eschl">Madhya Pradesh Board of Secondary Education</div></div>
+        </div>
+        <div class="edu-row">
+          <div class="edot" style="background:var(--accent4);box-shadow:0 0 8px var(--accent4)"></div>
+          <div><div class="eyr">2018</div><div class="edeg">10th — MP Board</div><div class="eschl">Madhya Pradesh Board of Secondary Education</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rev2">
+      <div class="acards">
+        <div class="acard"><div class="ai">📍</div><div class="albl">Location</div><div class="aval">Indore, India</div></div>
+        <div class="acard"><div class="ai">💼</div><div class="albl">Status</div><div class="aval g">Open to Work</div></div>
+        <div class="acard"><div class="ai">🎓</div><div class="albl">Degree</div><div class="aval">B.Tech AI & DS</div></div>
+        <div class="acard"><div class="ai">📞</div><div class="albl">Phone</div><div class="aval sm">+91 9111664169</div></div>
+        <div class="acard"><div class="ai">🗣</div><div class="albl">Languages</div><div class="aval">Hindi · English</div></div>
+        <div class="acard"><div class="ai">⏱</div><div class="albl">Experience</div><div class="aval">1+ Year</div></div>
+      </div>
+
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem;margin-bottom:1.2rem">
+        <div class="stag" style="margin-bottom:1rem">Tech I Work With</div>
+        <div class="tagcloud">
+          <span class="tcl hot">React.js</span><span class="tcl hot">JavaScript</span><span class="tcl hot">HTML/CSS</span>
+          <span class="tcl">Tailwind</span><span class="tcl">FastAPI</span><span class="tcl">Python</span>
+          <span class="tcl">Docker</span><span class="tcl">PostgreSQL</span><span class="tcl">Redis</span>
+          <span class="tcl">Azure</span><span class="tcl">Django</span><span class="tcl">Git</span>
+          <span class="tcl">Jenkins</span><span class="tcl">Azure DevOps</span>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+        <div class="acard" style="text-align:center">
+          <div style="font-size:2rem;font-weight:800;color:var(--accent2)" id="cnt1">0</div>
+          <div class="albl" style="text-align:center;margin-top:.3rem">Projects Shipped</div>
+        </div>
+        <div class="acard" style="text-align:center">
+          <div style="font-size:2rem;font-weight:800;color:var(--accent3)" id="cnt2">0</div>
+          <div class="albl" style="text-align:center;margin-top:.3rem">Technologies</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="stag rev">Career</div>
+  <h2 class="stitle rev">Work <em>Experience</em></h2>
+  <div class="timeline">
+    <div class="titem rev">
+      <div class="tdot"></div>
+      <div class="tdate">Apr 2025 – Present · Indore, India</div>
+      <div class="tco">KodVix Technologies</div>
+      <div class="trole">Software Engineer</div>
+      <ul class="tpts">
+        <li>Working on Canon UI module — designing responsive interfaces using HTML, CSS, JSP, JavaScript</li>
+        <li>Resolved complex UI bugs and shipped new frontend features improving performance and usability</li>
+        <li>Collaborated with backend and QA teams delivering stable, high-quality production releases</li>
+        <li>CI/CD workflows with Git, GitHub, Jenkins; task management via Azure DevOps</li>
+        <li>Built PepsiCo chat application with React.js — dynamic UI and real-time user interactions</li>
       </ul>
-    </nav>
-
-    <!-- loading animation -->
-    <!-- <div class="loader"> -->
-      <div class="lds-ripple">
-        <div></div>
-        <div></div>
     </div>
-    <!-- </div> -->
-
-    <!-- ///////// header /////////-->
-    <header class="container">
-      <a class="logo-div" href="#">
-        <img src="image\icon.jpeg" alt="" />
-        <span class="name">Lilesh</span>
-      </a>
-
-      <nav class="nav-div">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">projects</a></li>
-          <li><a href="#skills">skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#contact">contact me</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- ////////// hero section ////////// -->
-    <section class="hero-section container">
-      <div class="faded-text">Lilesh Mohane</div>
-
-      <!-- left -->
-      <div class="hero-section-left">
-        <h1 class="name">Hi! Lilesh Mohane</h1>
-        <p class="profession">I am a <span class="role"></span></p>
-        <p class="desc">
-          I’m a software developer and it is my portfolio website. Here you’ll
-          learn about my journey as a software developer.
-        </p>
-        <a class="btn" href="assets\LILESH-MOHANE-Resume-1.pdf" target="_blank" download>Resume</a>
-      </div>
-
-      <!-- right -->
-      <div class="hero-section-right">
-        <div class="my-image">
-          <img src="image/IMG_20220716_231417_926.jpg" width="350" height="400" alt=""/>
-        </div>
-
-        <div class="icon-zigzag">
-          <img src="images/userAsset/zigzags.png" alt="" />
-        </div>
-
-        <div class="icon-plus">
-          <img src="images/userAsset/plus.png" alt="" />
-        </div>
-
-        <div class="icon-cube">
-          <img src="images/userAsset/cube.png" alt="" />
-        </div>
-
-        <div class="icon-circle">
-          <img src="images/userAsset/circle.png" alt="" />
-        </div>
-
-        <div class="icon-dots">
-          <img src="images/userAsset/dots.png" alt="" />
-        </div>
-      </div>
-
-      <!-- button for small screens -->
-      <a class="btn extra-btn" href="assets\LILESH-MOHANE-Resume-1.pdf" target="_blank" download>Download CV</a>
-      
-    </section>
-
-       <!-- about me  -->
-
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-        <p>
-          Hi, I'm a 4rd-year student studying AI and Data Science. I'm passionate about all things data and have always been fascinated by the insights it can reveal. My ultimate goal is to become a successful data scientist and make a positive impact on the world through my work.
-        </p>
-      <div class="section-container">
-        <h3> <span> Name : </span> Lilesh Mohane </h3>
-                <h3> <span> Age : </span> 21 </h3>
-                <h3> <span> Education: </span>  Btech </h3>
-                <h3> <span> Collage: </span> Samrat Ashok Technological Institute Vidisha </h3>
-                <h3> <span> Branch: </span> AI and Data Science </h3>
-                <!-- <h3> <span> post : </span> front end developer </h3> -->
-                <h3> <span> Language : </span> hindi and english  </h3>
-        <div class="about-details-container">
-          <div class="about-containers">
-           
-            <div class="details-container">
-              <img
-                src="./image/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <div class="box">
-                <i class="fas fa-graduation-cap"></i>
-                <h1>Education</h1>
-                <span>2018</span>
-                <h3>10th mp bord </h3>
-                <p>i am pass out 10 class in year 2018</p>
-            </div>
-
-            <div class="box">
-              <i class="fas fa-graduation-cap"></i>
-              <span>2020</span>
-              <h3>12th mp bord</h3>
-              <p>i am pass out 12 class in year 2020</p>
-          </div>
-      
-          <div class="box">
-              <i class="fas fa-graduation-cap"></i>
-              <span>2020- 2024</span>
-              <h3>Btech</h3>
-              <p>currently i am study in Samrat Ashok Technological Institute Vidisha  Branch: (ARTIFICIAL INTELLIGENCE AND DATA SCIENCE) </p>
-          </div>
-        </div>
-        <div class="text-container">
-        
-        </div>
-      </div>
+    <div class="titem rev">
+      <div class="tdot" style="background:var(--accent3);box-shadow:0 0 14px var(--accent3)"></div>
+      <div class="tdate">Sep 2025 – Jan 2026 · Freelance</div>
+      <div class="tco">BigSources</div>
+      <div class="trole">Frontend Developer</div>
+      <ul class="tpts">
+        <li>Built complete frontend architecture using React.js for a live business website</li>
+        <li>Translated client requirements into a scalable, production-ready application</li>
+      </ul>
     </div>
-    <img
-      src="./assets/arrow.png"
-      alt="Arrow icon"
-      class="icon arrow"
-      onclick="location.href='./#experience'"
-    />
-  </section>
+  </div>
+</section>
 
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="stag rev">My Work</div>
+  <h2 class="stitle rev">Featured <em>Projects</em></h2>
+  <div class="pgrid">
+    <div class="pcard rev"><div class="pnum">01 — React.js · Live</div><div class="ptitle">BigSources</div><div class="pdesc">Complete freelance frontend architecture for a live business website. Translated client requirements into a scalable, production-ready React application.</div><div class="pstack"><span class="stk">React.js</span><span class="stk">JavaScript</span><span class="stk">HTML/CSS</span></div></div>
+    <div class="pcard rev"><div class="pnum">02 — React.js · Enterprise</div><div class="ptitle">PepsiCo Chat App</div><div class="pdesc">Chat-based web app with dynamic UI and real-time interactions for PepsiCo. Integrated APIs and handled real-time data rendering within Azure DevOps workflows.</div><div class="pstack"><span class="stk">React.js</span><span class="stk">JavaScript</span><span class="stk">Azure DevOps</span></div></div>
+    <div class="pcard rev"><div class="pnum">03 — FastAPI · Backend</div><div class="ptitle">Spend Analytics Chatbot</div><div class="pdesc">FastAPI-powered chatbot for real-time financial data insights. PostgreSQL storage, Redis caching, containerized with Docker, deployed on Microsoft Azure.</div><div class="pstack"><span class="stk">FastAPI</span><span class="stk">Python</span><span class="stk">PostgreSQL</span><span class="stk">Redis</span><span class="stk">Docker</span><span class="stk">Azure</span></div></div>
+    <div class="pcard rev"><div class="pnum">04 — Python · ML</div><div class="ptitle">Face Recognition Attendance</div><div class="pdesc">Attendance system using face recognition. Python, OpenCV, TensorFlow, Django backend and SQL database.</div><div class="pstack"><span class="stk">Python</span><span class="stk">OpenCV</span><span class="stk">TensorFlow</span><span class="stk">Django</span><span class="stk">SQL</span></div><a href="https://github.com/Lileshmohane/face-recognition-based-attendance-system" class="plink" target="_blank">GitHub →</a></div>
+    <div class="pcard rev"><div class="pnum">05 — ML · Streamlit</div><div class="ptitle">Farming Yield Prognosis</div><div class="pdesc">ML-powered crop yield insights using K-Nearest Neighbors algorithm with Streamlit interface. Helps farmers make data-driven decisions.</div><div class="pstack"><span class="stk">Python</span><span class="stk">KNN</span><span class="stk">Streamlit</span><span class="stk">ML</span></div></div>
+    <div class="pcard rev"><div class="pnum">06 — Enterprise · JSP</div><div class="ptitle">Canon UI Module</div><div class="pdesc">Enterprise-grade UI module for Canon at KodVix. Enhanced responsive interfaces, resolved complex UI bugs, improved performance across production releases.</div><div class="pstack"><span class="stk">HTML</span><span class="stk">CSS</span><span class="stk">JSP</span><span class="stk">JavaScript</span><span class="stk">Jenkins</span></div></div>
+  </div>
+</section>
 
-      <!--experience  -->
-      <section id="experience">
-        <p class="section__text__p1">Explore My</p>
-        <h1 class="title">Experience</h1>
-        <div class="experience-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <h2 class="experience-sub-title">web Development</h2>
-              <div class="article-container">
-                <article>
-                  <img
-                    src="image\html5.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>HTML</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="image\css-3.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>CSS</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-               
-                <article>
-                  <img
-                    src="image\javascript-js.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>JavaScript</h3>
-                    <p>Basic</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="image\MySQL-logo.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>mysql</h3>
-                    <p>Basic</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="image\mongodb-logo-4A71340576-seeklogo.com.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>mongodb</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="image\django-logo-F46C1DD95E-seeklogo.com.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>django</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
+<!-- SKILLS -->
+<section id="skills">
+  <div class="stag rev">Tech Stack</div>
+  <h2 class="stitle rev">Skills &amp; <em>Technologies</em></h2>
+  <div class="skcont">
+    <div class="skgrp rev">
+      <div class="skgtitle">Frontend</div>
+      <div class="ski"><div class="skih"><span class="sknm">React.js</span><span class="skpct">90%</span></div><div class="skbar"><div class="skfill" data-w="90"></div></div></div>
+      <div class="ski"><div class="skih"><span class="sknm">JavaScript</span><span class="skpct">85%</span></div><div class="skbar"><div class="skfill" data-w="85"></div></div></div>
+      <div class="ski"><div class="skih"><span class="sknm">HTML / CSS</span><span class="skpct">92%</span></div><div class="skbar"><div class="skfill" data-w="92"></div></div></div>
+      <div class="ski"><div class="skih"><span class="sknm">Tailwind CSS</span><span class="skpct">80%</span></div><div class="skbar"><div class="skfill" data-w="80"></div></div></div>
+      <div class="ski"><div class="skih"><span class="sknm">Ant Design</span><span class="skpct">75%</span></div><div class="skbar"><div class="skfill" data-w="75"></div></div></div>
+    </div>
+    <div class="skgrp rev">
+      <div class="skgtitle">Backend & APIs</div>
+      <div class="ski"><div class="skih"><span class="sknm">Python / FastAPI</span><span class="skpct">75%</span></div><div class="skbar"><div class="skfill" data-w="75"></div></div></div>
+      <div class="ski"><div class="skih"><span class="sknm">Django</span><span class="skpct">70%</span></div><div class="skbar"><div class="skfill" data-w="70"></div></div></div>
+      <div class="ski"><div class="skih"><span class="sknm">RESTful APIs / Axios</span><span class="skpct">88%</span></div><div class="skbar"><div class="skfill" data-w="88"></div></div></div>
+      <div class="ski"><div class="skih"><span class="sknm">PostgreSQL / SQL</span><span class="skpct">72%</span></div><div class="skbar"><div class="skfill" data-w="72"></div></div></div>
+      <div class="ski"><div class="skih"><span class="sknm">Redis / MongoDB</span><span class="skpct">65%</span></div><div class="skbar"><div class="skfill" data-w="65"></div></div></div>
+    </div>
+    <div class="skgrp rev">
+      <div class="skgtitle">DevOps & Tools</div>
+      <div class="ski"><div class="skih"><span class="sknm">Git / GitHub</span><span class="skpct">88%</span></div><div class="skbar"><div class="skfill" data-w="88"></div></div></div>
+      <div class="ski"><div class="skih"><span class="sknm">Docker</span><span class="skpct">65%</span></div><div class="skbar"><div class="skfill" data-w="65"></div></div></div>
+      <div class="ski"><div class="skih"><span class="sknm">Azure / Azure DevOps</span><span class="skpct">62%</span></div><div class="skbar"><div class="skfill" data-w="62"></div></div></div>
+      <div class="ski"><div class="skih"><span class="sknm">Jenkins / CI-CD</span><span class="skpct">60%</span></div><div class="skbar"><div class="skfill" data-w="60"></div></div></div>
+      <div class="ski"><div class="skih"><span class="sknm">C / C++ / Java</span><span class="skpct">70%</span></div><div class="skbar"><div class="skfill" data-w="70"></div></div></div>
+    </div>
+  </div>
+</section>
 
-                
-              </div>
-            </div>
-            <div class="details-container">
-              <h2 class="experience-sub-title">Data Science</h2>
-              <div class="article-container">
-                <article>
-                  <img
-                    src="image\python-logo.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>python</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="image/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Statistics</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./image/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Machine learning</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./image/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Git</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-  
-                <article>
-                  <img
-                    src="./image/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Deep learning</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-  
-                <article>
-                  <img
-                    src="./image/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Computer vision</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-  
-                <article>
-                  <img
-                    src="./image/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Natural language processing</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./image/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Big Data</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-              <article>
-                  <img
-                    src="./image/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Data Analytics</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="cglow"></div>
+  <div class="stag rev" style="justify-content:center">Let's Connect</div>
+  <h2 class="stitle rev" style="text-align:center">Get In <em>Touch</em></h2>
+  <p class="csub rev">Have a project in mind or want to say hello? My inbox is always open — currently available for new opportunities.</p>
+  <a class="cemail rev" href="mailto:lileshmohane2002@gmail.com">lileshmohane2002@gmail.com</a>
+  <div class="clinks rev">
+    <a href="mailto:lileshmohane2002@gmail.com" class="clink">✉ Email</a>
+    <a href="https://www.linkedin.com/in/lileshmohane" class="clink" target="_blank">in LinkedIn</a>
+    <a href="https://github.com/Lileshmohane" class="clink" target="_blank">⌥ GitHub</a>
+    <a href="https://lileshmohane1.github.io/myportfolio.github.io/" class="clink" target="_blank">⊞ Portfolio</a>
+    <a href="tel:+919111664169" class="clink">✆ Call</a>
+  </div>
+</section>
 
-                 <article>
-                  <img
-                    src="./image/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>PowerBI</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
+<footer>
+  <p>© 2026 <em>Lilesh Mohane</em> — Built with precision.</p>
+  <p>Frontend Developer · <em>Indore, India</em></p>
+</footer>
 
-                 <article>
-                  <img
-                    src="./image/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Tableau</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
+<script>
+// CURSOR
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function raf(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=Math.round(rx)+'px';ring.style.top=Math.round(ry)+'px';requestAnimationFrame(raf)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ring.style.width='54px';ring.style.height='54px';ring.style.opacity='.7'});
+  el.addEventListener('mouseleave',()=>{ring.style.width='38px';ring.style.height='38px';ring.style.opacity='.4'});
+});
 
-                
-              </div>
-            </div>
-          </div>
-        </div>
-        <img
-          src="./assets/arrow.png"
-          alt="Arrow icon"
-          class="icon arrow"
-          onclick="location.href='./#projects'"
-        />
-      </section>
+// TYPED
+const phrases=['Frontend Developer','React.js Engineer','UI/UX Craftsman','Full Stack Explorer'];
+let pi=0,ci=0,del=false;
+const typed=document.getElementById('typed');
+function tick(){const p=phrases[pi];if(!del){typed.textContent=p.slice(0,++ci);if(ci===p.length){del=true;setTimeout(tick,1800);return}}else{typed.textContent=p.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length}}setTimeout(tick,del?55:105);}
+tick();
 
-    <!-- /////// projects section /////////// -->
-    <section class="project-section" id="projects">
-      <h2 class="project-header">projects</h2>
-      <div class="project-container container">
-        <!-- //// -->
-        <div class="project-card" id="project-1">
-          <img src="image\OIP.jpeg" alt="" height="100%" width="100%"/>
-          <div class="project-number">01</div>
-          <div class="project-content">
-            <div class="project-skills-container">
-              <img src="images/stack/HTML.png" alt="html" />
-              <img src="images/stack/CSS.png" alt="css" />
-              <img src="images/stack/Javascript.svg" alt="javascript" />
-              <img
-              src="image\MySQL-logo.png"
-              alt="Experience icon"
-              class="icon"
-            />
-            <img
-            src="image\django-logo-F46C1DD95E-seeklogo.com.png"
-            alt="Experience icon"
-            class="icon"
-          />
-          <img
-          src="image\python-logo.png"
-          alt="Experience icon"
-          class="icon"
-        />
-            </div>
+// IMAGE FALLBACK
+const heroImg=document.getElementById('heroImg');
+if(heroImg){heroImg.onerror=function(){const fi=document.getElementById('cface');if(fi){fi.style.background='linear-gradient(145deg,#1a1030,#0f1e40,#0a2a3a)';fi.innerHTML='<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:Syne,sans-serif;font-size:6rem;font-weight:800;color:rgba(167,139,250,.25);user-select:none">LM</div>';}}}
 
-            <h2>Attendance management system</h2>
+// 3D CARD MOUSE TILT
+const stage=document.getElementById('stage');
+const card3d=document.getElementById('card3d');
+let hoverActive=false;
+if(stage&&card3d){
+  stage.addEventListener('mouseenter',()=>{hoverActive=true});
+  stage.addEventListener('mouseleave',()=>{
+    hoverActive=false;
+    card3d.style.transition='transform .7s cubic-bezier(.16,1,.3,1)';
+    card3d.style.transform='rotateY(-12deg) rotateX(8deg)';
+  });
+  stage.addEventListener('mousemove',e=>{
+    if(!hoverActive)return;
+    const r=stage.getBoundingClientRect();
+    const nx=((e.clientX-r.left)/r.width-.5)*2;
+    const ny=((e.clientY-r.top)/r.height-.5)*2;
+    card3d.style.transition='transform .08s ease';
+    card3d.style.transform=`rotateY(${nx*20}deg) rotateX(${-ny*14}deg) scale(1.02)`;
+  });
+}
 
-            <p>
-             
-              Designed and developed a cutting-edge Attendance Management System that 
-             leverages face recognition technology to streamline attendance tracking and enhance 
-             security within an organizational setting.
-              Technologies Use d : Python, OpenCV, TensorFlow,Django (for the backend), 
-             HTML/CSS/JavaScript (for the frontend), and SQL databases for this project
-            </p>
+// SCROLL-DRIVEN 3D PARALLAX
+let scrollRaf=false;
+function onScroll(){
+  if(scrollRaf)return;
+  scrollRaf=true;
+  requestAnimationFrame(()=>{
+    scrollRaf=false;
+    const heroEl=document.getElementById('hero');
+    if(!heroEl||!card3d)return;
+    const s=window.scrollY;
+    const h=heroEl.offsetHeight;
+    const p=Math.min(s/h,1);
 
-            <div class="project-buttons">
-              <a class="btn" href="https://github.com/Lileshmohane/face-recognition-based-attendance-system'" target="_blank">
-                Read More
-                <span class="screen-reader-text">learn more</span>
-              </a>
-              <a href="#" target="_blank" aria-label="github">
-                <i class="fa-brands fa-github icons"></i>
-              </a>
-
-              <a href="https://github.com/Lileshmohane/face-recognition-based-attendance-system'" target="_blank" aria-label="link">
-                <i class="fa-solid fa-link icons"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- ///// -->
-        
-        <!-- //// -->
-        <div class="project-card" id="project-2">
-          <img src="image\farmer.jpeg" alt=""  height="100%" width="100%"/>
-          <div class="project-number">02</div>
-          
-          <div class="project-content">
-            <div class="project-skills-container">
-              <img src="images/stack/HTML.png" alt="" />
-              <img src="images/stack/CSS.png" alt="" />
-              <img src="images/stack/Javascript.svg" alt="" />
-            </div>
-
-            <h2>FARMING YIELD PROGNOSIS </h2>
-
-            <p>
-              The project aims to have a positive impact on agriculture by providing farmers with actionable insights, fostering resilience against uncertainties, and contributing to sustainable farming practices.
-              Technological Focus - K Nearest Neighbors (KNN):
-              Streamlit for User Interaction:
-            </p>
-
-            <div class="project-buttons">
-              <a class="btn" href="#" target="_blank">
-                Read More
-                <span class="screen-reader-text">learn more</span>
-              </a>
-              <a href="https://github.com/Lileshmohane/FARMING-YIELD-PROGNOSIS" target="_blank" aria-label="github">
-                <i class="fa-brands fa-github icons"></i>
-              </a>
-
-              <a href="https://github.com/Lileshmohane/FARMING-YIELD-PROGNOSIS" target="_blank" aria-label="link">
-                <i class="fa-solid fa-link icons"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- ///// -->
-
-        <!-- //// -->
-        <div class="project-card" id="project-3">
-          <img src="image\portfolio.png" alt="" height="100%" width="100%" />
-          <div class="project-number">03</div>
-          <div class="project-content">
-            <div class="project-skills-container">
-              <img src="images/stack/HTML.png" alt="" />
-              <img src="images/stack/CSS.png" alt="" />
-              <img src="images/stack/Javascript.svg" alt="" />
-            </div>
-
-            <h2>Portfolio</h2>
-
-            <p>
-              Designed and developed a personal portfolio website to showcase my skills, projects, and experiencesTechnologies : HTML|CSS|JAVASCRIPT
-            </p>
-
-            <div class="project-buttons">
-              <a class="btn" href="#" target="_blank">
-                Read More
-                <span class="screen-reader-text">learn more</span>
-              </a>
-              <a href="https://lileshmohane1.github.io/myportfolio.github.io/" target="_blank" aria-label="github">
-                <i class="fa-brands fa-github icons"></i>
-              </a>
-
-              <a href="https://lileshmohane1.github.io/myportfolio.github.io/" target="_blank" aria-label="link">
-                <i class="fa-solid fa-link icons"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- ///// -->
-
-  
-      </div>
-    </section>
-
-
-
-    <!-- ////////////////// skills section //////// -->
-    <section class="skill-section" id="skills">
-      <div class="skill-section-content container">
-        <div class="skill-fadded-text">skills</div>
-        <div class="skill-section-left">
-          <h2 class="skill-section-heading">
-            <span>M</span>e and <br />MyTech Stack
-          </h2>
-
-         
-        </div>
-
-        <div class="skill-section-right">
-          <img
-            src="images/userAsset/blob vector.png"
-            class="blob-style"
-            alt=""
-          />
-          <img src="images/stack/HTML.png" alt="" />
-          <img src="images/stack/CSS.png" alt="" />
-          <img src="images/stack/Javascript.svg" alt="" />
-          <img src="images/stack/Tailwind.png" alt="" />
-          <img src="images/stack/Bootstrap.svg" alt="" />
-
-          <img src="images/stack/MongoDB.svg" alt="" />
-          <img src="images/stack/Express.png" alt="" />
-          <img src="images/stack/React.png" alt="" />
-          <img src="image\python-logo.png" alt="" />
-          <img src="image\MySQL-logo.png" alt="" />
-          <img src="image\mongodb-logo-4A71340576-seeklogo.com.png" alt="" />
-          <img src="image\django-logo-F46C1DD95E-seeklogo.com.png" alt="" />
-          <img src="images/stack/Git.svg" alt="" />
-          <img src="images/stack/Github.svg" alt="" />
-
-       
-         <img src="images/stack/Docker.svg" alt="" /> 
-  
-        </div>
-      </div>
-    </section>
-
-    <!-- //////////////// contact section ////////// -->
-    <section class="contact-section" id="contact">
-      <div class="contact-section-content container">
-        <h2 class="contact-section-heading">Contact Me</h2>
-        <h3 class="contact-section-sub-heading">
-          Questions, thoughts, or just want to say hello?
-        </h3>
-
-        <form action="#" class="contact-form" id="contact-form">
-          <div class="form-field">
-            <input type="text" 
-            name="name"
-            placeholder="Enter your name" 
-            required/>
-          </div>
-
-          <div class="form-field">
-            <input type="email"
-             name="email"
-             placeholder="Enter your email address"
-             required />
-          </div>
-
-          <div class="form-field">
-            <input type="tel" 
-            name="phone"
-            placeholder="Enter your Mobile number"
-             />
-          </div>
-
-          <div class="form-field">
-            <textarea
-              name=""
-              id="messageArea"
-              cols="30"
-              rows="10"
-              placeholder="Enter your message"
-            ></textarea>
-          </div>
-
-          <div class="button-field">
-            <button type="submit" class="btn form-btn">
-              Send Message
-              <i class="fa-solid fa-paper-plane icon"></i>
-            </button>
-          </div>
-        </form>
-      </div>
-    </section>
-
-    <!-- //////////// footer ///////////// -->
-    <footer>
-      <div class="footer-content container">
-        <div class="footer-fadded-text">Lilesh</div>
-
-        <nav class="nav-div">
-          <ul>
-            <li><a href="#projects">projects</a></li>
-            <li><a href="#skills">skills</a></li>
-            <li><a href="#contact">contact me</a></li>
-          </ul>
-        </nav>
-
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/lilesh-mohane-5952b7203/" target="_blank" aria-label="linkedin account">
-            <i class="fa-brands fa-linkedin icon"></i>
-          </a>
-
-          <a href="https://github.com/Lileshmohane" target="_blank" aria-label="github account">
-            <i class="fa-brands fa-github icon"></i>
-          </a>
-
-          <a href="https://twitter.com/LileshMohane" target="_blank" aria-label="twitter account">
-            <i class="fa-brands fa-twitter icon"></i>
-          </a>
-
-          <a href="https://www.instagram.com/Nikhil_mohane_1/" target="_blank" aria-label="instagram account">
-            <i class="fa-brands fa-instagram icon"></i>
-          </a>
-
-          <a href="mailto:examplemail@gmail.com">lileshmohane2002@gmail.com</a>
-            <i class="fa-regular fa-envelope icon"></i>
-          </a>
-        </div>
-      </div>
-    </footer>
-    <!-- ///// -->
-
-    <!-- /////// scripts /// -->
-
-        
-    <script>
-      if ("serviceWorker" in navigator) { 
-        navigator.serviceWorker.register("sw.js").then(registration => {
-          console.log("SW Registered!");
-          // console.log(registration);
-        }).catch(error => {
-          console.log("SW Registration Failed!");
-          console.log(error);
-      });
+    if(s<10){
+      // reset to default tilt when at top
+      if(!hoverActive){
+        card3d.style.transition='transform .3s ease';
+        card3d.style.transform='rotateY(-12deg) rotateX(8deg)';
+      }
+      stage.style.opacity='1';
+    } else if(!hoverActive){
+      // dramatic 3D rotation + push-back + fade as scroll progresses
+      const rY = -12 + p*50;
+      const rX =  8  - p*30;
+      const tz =  p * -80;
+      const sc =  1  - p*.12;
+      card3d.style.transition='none';
+      card3d.style.transform=`rotateY(${rY}deg) rotateX(${rX}deg) translateZ(${tz}px) scale(${Math.max(sc,.6)})`;
+      stage.style.opacity=Math.max(1-p*1.4,0).toString();
     }
-    </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="js/script.js"></script>
+    // Hero text parallax
+    const hl=document.getElementById('heroLeft');
+    if(hl){
+      hl.style.transform=`translateY(${s*.25}px)`;
+      hl.style.opacity=Math.max(1-p*1.6,0).toString();
+    }
+  });
+}
+window.addEventListener('scroll',onScroll,{passive:true});
 
+// PROJECT SPOTLIGHT
+document.querySelectorAll('.pcard').forEach(c=>{
+  c.addEventListener('mousemove',e=>{
+    const r=c.getBoundingClientRect();
+    c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');
+    c.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');
+  });
+});
 
-   
-  </body>
+// SCROLL REVEAL + SKILL BARS
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('vis');
+      e.target.querySelectorAll('.skfill').forEach(b=>b.style.width=b.dataset.w+'%');
+    }
+  });
+},{threshold:.12});
+document.querySelectorAll('.rev,.rev2').forEach(el=>obs.observe(el));
+
+// COUNTER ANIMATION
+function animCount(el,target,dur){
+  let st=null;
+  (function step(ts){if(!st)st=ts;const p=Math.min((ts-st)/dur,1);el.textContent=Math.round(p*target)+'+';if(p<1)requestAnimationFrame(step);})(0);
+  // fix first frame
+  requestAnimationFrame(ts=>{
+    let st2=ts;
+    function step2(ts2){const p=Math.min((ts2-st2)/dur,1);el.textContent=Math.round(p*target)+'+';if(p<1)requestAnimationFrame(step2);}
+    step2(ts);
+  });
+}
+const cntObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const c1=document.getElementById('cnt1'),c2=document.getElementById('cnt2');
+      if(c1&&c2){animCount(c1,6,1100);animCount(c2,14,1300);}
+      cntObs.disconnect();
+    }
+  });
+},{threshold:.3});
+const c1=document.getElementById('cnt1');
+if(c1)cntObs.observe(c1.closest('.acard'));
+</script>
+</body>
 </html>
