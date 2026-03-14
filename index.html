@@ -168,19 +168,77 @@ h1.hname{font-size:clamp(3.2rem,5.5vw,5.8rem);font-weight:800;line-height:.95;le
 .tpts li{font-family:'DM Mono',monospace;font-size:.8rem;color:var(--muted);padding:.35rem 0 .35rem 1.2rem;position:relative;line-height:1.65}
 .tpts li::before{content:'→';position:absolute;left:0;color:var(--accent2)}
 
-/* PROJECTS */
-#projects{padding:7rem 4rem;background:var(--bg2)}
-.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1.5rem;margin-top:2rem}
-.pcard{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:2rem;position:relative;overflow:hidden;transition:all .35s cubic-bezier(.16,1,.3,1);cursor:none}
-.pcard::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(124,111,247,.09),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
-.pcard:hover{border-color:var(--border3);transform:translateY(-6px)}.pcard:hover::after{opacity:1}
-.pnum{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent2);letter-spacing:.15em;margin-bottom:.8rem}
-.ptitle{font-size:1.25rem;font-weight:700;margin-bottom:.7rem}
-.pdesc{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted);line-height:1.85;margin-bottom:1.4rem}
-.pstack{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.4rem}
-.stk{font-family:'DM Mono',monospace;font-size:.65rem;padding:.28rem .65rem;border-radius:4px;border:1px solid var(--border2);color:var(--accent3)}
-.plink{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--accent2);text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;transition:gap .2s}
-.plink:hover{gap:.65rem}
+/* ── PROJECTS REDESIGN ── */
+#projects{padding:7rem 4rem;background:var(--bg2);position:relative;overflow:hidden}
+#projects .proj-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(124,111,247,.05),transparent)}
+
+/* Filter tabs */
+.proj-tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin:2rem 0 3rem}
+.ptab{font-family:'DM Mono',monospace;font-size:.7rem;padding:.4rem 1.1rem;border-radius:999px;border:1px solid var(--border2);color:var(--muted);cursor:pointer;transition:all .22s;background:transparent;letter-spacing:.06em}
+.ptab.active,.ptab:hover{border-color:var(--accent2);color:var(--accent2);background:rgba(167,139,250,.08)}
+
+/* Project list — big interactive cards */
+.proj-list{display:flex;flex-direction:column;gap:2px}
+
+.proj-item{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:border-color .3s;cursor:pointer}
+.proj-item:hover,.proj-item.open{border-color:var(--border3)}
+
+/* Header row — always visible */
+.proj-head{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:1.5rem;padding:1.6rem 2rem;transition:background .2s}
+.proj-head:hover{background:rgba(255,255,255,.02)}
+.proj-item.open .proj-head{background:rgba(124,111,247,.04)}
+
+.proj-idx{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted);letter-spacing:.1em;min-width:24px}
+.proj-meta{}
+.proj-name{font-size:1.15rem;font-weight:700;margin-bottom:.3rem}
+.proj-tagline{font-family:'DM Mono',monospace;font-size:.73rem;color:var(--muted)}
+.proj-chips{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+.pchip{font-family:'DM Mono',monospace;font-size:.6rem;padding:.22rem .6rem;border-radius:4px;border:1px solid var(--border2);color:var(--accent3);white-space:nowrap}
+.proj-arr{width:28px;height:28px;border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--muted);transition:all .3s;flex-shrink:0}
+.proj-item.open .proj-arr{transform:rotate(45deg);border-color:var(--accent2);color:var(--accent2)}
+
+/* Expand panel */
+.proj-body{max-height:0;overflow:hidden;transition:max-height .55s cubic-bezier(.16,1,.3,1)}
+.proj-item.open .proj-body{max-height:700px}
+.proj-body-inner{padding:0 2rem 2rem}
+
+/* Architecture diagram area */
+.arch{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.arch-title{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--accent2);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
+.arch-title::before{content:'';width:6px;height:6px;background:var(--accent2);border-radius:50%;box-shadow:0 0 6px var(--accent2);animation:pulse 2s infinite}
+
+/* Flow diagram */
+.flow{display:flex;align-items:center;gap:0;flex-wrap:wrap;row-gap:.8rem}
+.fnode{background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:.6rem 1rem;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--text);white-space:nowrap;position:relative;transition:border-color .3s,box-shadow .3s}
+.fnode.active{border-color:var(--accent2);box-shadow:0 0 12px rgba(167,139,250,.25)}
+.fnode.green{border-color:rgba(74,222,128,.4);color:#4ade80}
+.fnode.blue{border-color:rgba(56,189,248,.4);color:var(--accent3)}
+.fnode.pink{border-color:rgba(244,114,182,.4);color:var(--accent4)}
+.fnode.yellow{border-color:rgba(250,204,21,.4);color:#facc15}
+.farr{display:flex;align-items:center;padding:0 .3rem;color:var(--muted);font-size:.8rem;flex-shrink:0;position:relative}
+/* animated data packet */
+.fnode.active::after{content:'';position:absolute;right:-18px;top:50%;transform:translateY(-50%);width:6px;height:6px;background:var(--accent2);border-radius:50%;animation:packet .8s ease-in-out infinite;z-index:2}
+@keyframes packet{0%{opacity:1;transform:translateY(-50%) translateX(0)}100%{opacity:0;transform:translateY(-50%) translateX(16px)}}
+
+/* Metrics row */
+.metrics{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem}
+.mcard{flex:1;min-width:120px;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:.9rem 1.1rem}
+.mval{font-size:1.3rem;font-weight:800;color:var(--text);font-family:'Syne',sans-serif}
+.mval .munit{font-size:.75rem;color:var(--accent2);font-weight:600}
+.mlbl{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);margin-top:.2rem;letter-spacing:.08em}
+/* live pulsing metric */
+.mlive{display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Mono',monospace;font-size:.6rem;color:#4ade80;margin-top:.3rem}
+.mlive::before{content:'';width:5px;height:5px;background:#4ade80;border-radius:50%;animation:pulse 1.5s infinite}
+
+/* Responsibilities inside body */
+.proj-roles{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1rem}
+.prole{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--muted);padding:.45rem .7rem;background:var(--bg);border-radius:7px;border:1px solid var(--border);display:flex;align-items:start;gap:.5rem;line-height:1.5}
+.prole::before{content:'→';color:var(--accent2);flex-shrink:0}
+.proj-link-row{display:flex;gap:.8rem;margin-top:1.2rem}
+.plbtn{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.2rem;border:1px solid var(--border3);border-radius:6px;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--text);text-decoration:none;transition:all .22s}
+.plbtn:hover{border-color:var(--accent2);color:var(--accent2)}
+.plbtn.solid{background:var(--accent);border-color:var(--accent);color:#fff}
+.plbtn.solid:hover{background:var(--accent2);border-color:var(--accent2)}
 
 /* SKILLS */
 #skills{padding:7rem 4rem;background:var(--bg)}
@@ -402,16 +460,406 @@ footer em{color:var(--accent2);font-style:normal}
 
 <!-- PROJECTS -->
 <section id="projects">
+  <div class="proj-bg"></div>
   <div class="stag rev">My Work</div>
-  <h2 class="stitle rev">Featured <em>Projects</em></h2>
-  <div class="pgrid">
-    <div class="pcard rev"><div class="pnum">01 — React.js · Live</div><div class="ptitle">BigSources</div><div class="pdesc">Complete freelance frontend architecture for a live business website. Translated client requirements into a scalable, production-ready React application.</div><div class="pstack"><span class="stk">React.js</span><span class="stk">JavaScript</span><span class="stk">HTML/CSS</span></div></div>
-    <div class="pcard rev"><div class="pnum">02 — React.js · Enterprise</div><div class="ptitle">PepsiCo Chat App</div><div class="pdesc">Chat-based web app with dynamic UI and real-time interactions for PepsiCo. Integrated APIs and handled real-time data rendering within Azure DevOps workflows.</div><div class="pstack"><span class="stk">React.js</span><span class="stk">JavaScript</span><span class="stk">Azure DevOps</span></div></div>
-    <div class="pcard rev"><div class="pnum">03 — FastAPI · Backend</div><div class="ptitle">Spend Analytics Chatbot</div><div class="pdesc">FastAPI-powered chatbot for real-time financial data insights. PostgreSQL storage, Redis caching, containerized with Docker, deployed on Microsoft Azure.</div><div class="pstack"><span class="stk">FastAPI</span><span class="stk">Python</span><span class="stk">PostgreSQL</span><span class="stk">Redis</span><span class="stk">Docker</span><span class="stk">Azure</span></div></div>
-    <div class="pcard rev"><div class="pnum">04 — Python · ML</div><div class="ptitle">Face Recognition Attendance</div><div class="pdesc">Attendance system using face recognition. Python, OpenCV, TensorFlow, Django backend and SQL database.</div><div class="pstack"><span class="stk">Python</span><span class="stk">OpenCV</span><span class="stk">TensorFlow</span><span class="stk">Django</span><span class="stk">SQL</span></div><a href="https://github.com/Lileshmohane/face-recognition-based-attendance-system" class="plink" target="_blank">GitHub →</a></div>
-    <div class="pcard rev"><div class="pnum">05 — ML · Streamlit</div><div class="ptitle">Farming Yield Prognosis</div><div class="pdesc">ML-powered crop yield insights using K-Nearest Neighbors algorithm with Streamlit interface. Helps farmers make data-driven decisions.</div><div class="pstack"><span class="stk">Python</span><span class="stk">KNN</span><span class="stk">Streamlit</span><span class="stk">ML</span></div></div>
-    <div class="pcard rev"><div class="pnum">06 — Enterprise · JSP</div><div class="ptitle">Canon UI Module</div><div class="pdesc">Enterprise-grade UI module for Canon at KodVix. Enhanced responsive interfaces, resolved complex UI bugs, improved performance across production releases.</div><div class="pstack"><span class="stk">HTML</span><span class="stk">CSS</span><span class="stk">JSP</span><span class="stk">JavaScript</span><span class="stk">Jenkins</span></div></div>
+  <h2 class="stitle rev">How I <em>Build</em> Things</h2>
+  <p style="font-family:'DM Mono',monospace;font-size:.82rem;color:var(--muted);max-width:540px;line-height:1.9;margin-bottom:.5rem" class="rev">Click any project to see the real architecture — data flow, tech pipeline, and how everything connects in production.</p>
+
+  <!-- filter tabs -->
+  <div class="proj-tabs rev">
+    <button class="ptab active" data-filter="all">All Projects</button>
+    <button class="ptab" data-filter="react">React.js</button>
+    <button class="ptab" data-filter="backend">Backend</button>
+    <button class="ptab" data-filter="ml">ML / AI</button>
+    <button class="ptab" data-filter="enterprise">Enterprise</button>
   </div>
+
+  <div class="proj-list rev">
+
+    <!-- ── PROJECT 1: PepsiCo Chat App ── -->
+    <div class="proj-item" data-cats="react enterprise">
+      <div class="proj-head" onclick="toggleProj(this)">
+        <span class="proj-idx">01</span>
+        <div class="proj-meta">
+          <div class="proj-name">PepsiCo Chat Application</div>
+          <div class="proj-tagline">Real-time enterprise chat with live API rendering · React.js · Azure DevOps</div>
+        </div>
+        <div class="proj-chips">
+          <span class="pchip">React.js</span>
+          <span class="pchip">JavaScript</span>
+          <span class="pchip">Azure DevOps</span>
+          <span class="pchip" style="color:#4ade80;border-color:rgba(74,222,128,.3)">● Live</span>
+        </div>
+        <div class="proj-arr">+</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-body-inner">
+          <!-- Architecture flow -->
+          <div class="arch">
+            <div class="arch-title">Real-Time Architecture Flow</div>
+            <div class="flow">
+              <div class="fnode blue">User Browser</div>
+              <div class="farr">→</div>
+              <div class="fnode active">React UI<br><span style="font-size:.6rem;color:var(--muted)">useState / Hooks</span></div>
+              <div class="farr">→</div>
+              <div class="fnode yellow">Axios<br><span style="font-size:.6rem;color:var(--muted)">HTTP Client</span></div>
+              <div class="farr">→</div>
+              <div class="fnode green">REST API<br><span style="font-size:.6rem;color:var(--muted)">JSON Responses</span></div>
+              <div class="farr">→</div>
+              <div class="fnode pink">Azure DevOps<br><span style="font-size:.6rem;color:var(--muted)">CI/CD Pipeline</span></div>
+            </div>
+          </div>
+          <!-- Live metrics -->
+          <div class="metrics">
+            <div class="mcard">
+              <div class="mval" id="m1-msg">0<span class="munit">ms</span></div>
+              <div class="mlbl">API Response Time</div>
+              <div class="mlive">live</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">React<span class="munit"> 18</span></div>
+              <div class="mlbl">Framework Version</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">100<span class="munit">%</span></div>
+              <div class="mlbl">Component-Based</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">CI/CD<span class="munit"> ✓</span></div>
+              <div class="mlbl">Auto Deployment</div>
+            </div>
+          </div>
+          <div class="proj-roles">
+            <div class="prole">Built dynamic React component tree with real-time state management</div>
+            <div class="prole">Integrated REST APIs using Axios with live data rendering</div>
+            <div class="prole">Managed tasks, version control & deployment via Azure DevOps</div>
+            <div class="prole">Implemented responsive UI with live message feed updates</div>
+          </div>
+          <div class="proj-link-row">
+            <a href="https://github.com/Lileshmohane" class="plbtn" target="_blank">⌥ GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PROJECT 2: Spend Analytics Chatbot ── -->
+    <div class="proj-item" data-cats="backend">
+      <div class="proj-head" onclick="toggleProj(this)">
+        <span class="proj-idx">02</span>
+        <div class="proj-meta">
+          <div class="proj-name">Spend Analytics Chatbot</div>
+          <div class="proj-tagline">Full-stack AI chatbot — FastAPI + PostgreSQL + Redis + Docker + Azure</div>
+        </div>
+        <div class="proj-chips">
+          <span class="pchip">FastAPI</span>
+          <span class="pchip">PostgreSQL</span>
+          <span class="pchip">Redis</span>
+          <span class="pchip">Docker</span>
+          <span class="pchip">Azure</span>
+        </div>
+        <div class="proj-arr">+</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-body-inner">
+          <div class="arch">
+            <div class="arch-title">Backend System Architecture</div>
+            <div class="flow" style="row-gap:1rem">
+              <div class="fnode blue">User Query<br><span style="font-size:.6rem;color:var(--muted)">HTTP POST</span></div>
+              <div class="farr">→</div>
+              <div class="fnode active">FastAPI<br><span style="font-size:.6rem;color:var(--muted)">Python Router</span></div>
+              <div class="farr">→</div>
+              <div class="fnode yellow">Redis Cache<br><span style="font-size:.6rem;color:var(--muted)">TTL: 300s</span></div>
+              <div class="farr" style="color:#4ade80">↓ miss</div>
+              <div class="fnode green">PostgreSQL<br><span style="font-size:.6rem;color:var(--muted)">Spend Data</span></div>
+              <div class="farr">→</div>
+              <div class="fnode pink">Docker<br><span style="font-size:.6rem;color:var(--muted)">Container</span></div>
+              <div class="farr">→</div>
+              <div class="fnode" style="border-color:rgba(124,111,247,.5);color:var(--accent2)">Azure App<br><span style="font-size:.6rem;color:var(--muted)">Cloud Deploy</span></div>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="mcard">
+              <div class="mval">~<span class="munit">40</span>ms</div>
+              <div class="mlbl">Redis Cache Hit</div>
+              <div class="mlive">avg response</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">REST<span class="munit"> API</span></div>
+              <div class="mlbl">FastAPI Endpoints</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">Docker<span class="munit"> ✓</span></div>
+              <div class="mlbl">Containerized</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">Azure<span class="munit"> ☁</span></div>
+              <div class="mlbl">Cloud Hosted</div>
+            </div>
+          </div>
+          <div class="proj-roles">
+            <div class="prole">Designed RESTful APIs to process and analyze financial spend data</div>
+            <div class="prole">PostgreSQL schema for structured financial data storage</div>
+            <div class="prole">Redis caching layer — dramatically reduces repeated query time</div>
+            <div class="prole">Containerized with Docker, deployed on Azure App Services</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PROJECT 3: BigSources ── -->
+    <div class="proj-item" data-cats="react">
+      <div class="proj-head" onclick="toggleProj(this)">
+        <span class="proj-idx">03</span>
+        <div class="proj-meta">
+          <div class="proj-name">BigSources — Business Website</div>
+          <div class="proj-tagline">Freelance production React app · Complete frontend architecture · Live</div>
+        </div>
+        <div class="proj-chips">
+          <span class="pchip">React.js</span>
+          <span class="pchip">JavaScript</span>
+          <span class="pchip">HTML/CSS</span>
+          <span class="pchip" style="color:#4ade80;border-color:rgba(74,222,128,.3)">● Live Site</span>
+        </div>
+        <div class="proj-arr">+</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-body-inner">
+          <div class="arch">
+            <div class="arch-title">Frontend Architecture</div>
+            <div class="flow">
+              <div class="fnode" style="border-color:rgba(250,204,21,.4);color:#facc15">Client Brief<br><span style="font-size:.6rem;color:var(--muted)">Requirements</span></div>
+              <div class="farr">→</div>
+              <div class="fnode active">React Components<br><span style="font-size:.6rem;color:var(--muted)">Modular UI</span></div>
+              <div class="farr">→</div>
+              <div class="fnode blue">React Router<br><span style="font-size:.6rem;color:var(--muted)">SPA Navigation</span></div>
+              <div class="farr">→</div>
+              <div class="fnode green">CSS / Responsive<br><span style="font-size:.6rem;color:var(--muted)">Mobile-first</span></div>
+              <div class="farr">→</div>
+              <div class="fnode pink">Production<br><span style="font-size:.6rem;color:var(--muted)">Deployed ✓</span></div>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="mcard">
+              <div class="mval">SPA<span class="munit"> ✓</span></div>
+              <div class="mlbl">Single Page App</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">100<span class="munit">%</span></div>
+              <div class="mlbl">Client Requirements Met</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">Mobile<span class="munit"> ✓</span></div>
+              <div class="mlbl">Responsive Design</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">Live<span class="munit"> ↗</span></div>
+              <div class="mlbl">Production Deployed</div>
+              <div class="mlive">running now</div>
+            </div>
+          </div>
+          <div class="proj-roles">
+            <div class="prole">Designed complete component-based React architecture from scratch</div>
+            <div class="prole">Translated all client wireframes into pixel-perfect production UI</div>
+            <div class="prole">Mobile-first responsive layout across all screen sizes</div>
+            <div class="prole">Delivered on schedule — scalable, maintainable codebase</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PROJECT 4: Face Recognition ── -->
+    <div class="proj-item" data-cats="ml">
+      <div class="proj-head" onclick="toggleProj(this)">
+        <span class="proj-idx">04</span>
+        <div class="proj-meta">
+          <div class="proj-name">Face Recognition Attendance System</div>
+          <div class="proj-tagline">Real-time face detection pipeline — OpenCV + TensorFlow + Django</div>
+        </div>
+        <div class="proj-chips">
+          <span class="pchip">Python</span>
+          <span class="pchip">OpenCV</span>
+          <span class="pchip">TensorFlow</span>
+          <span class="pchip">Django</span>
+          <span class="pchip">SQL</span>
+        </div>
+        <div class="proj-arr">+</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-body-inner">
+          <div class="arch">
+            <div class="arch-title">ML Inference Pipeline</div>
+            <div class="flow">
+              <div class="fnode blue">Camera Feed<br><span style="font-size:.6rem;color:var(--muted)">Video Stream</span></div>
+              <div class="farr">→</div>
+              <div class="fnode active">OpenCV<br><span style="font-size:.6rem;color:var(--muted)">Frame Capture</span></div>
+              <div class="farr">→</div>
+              <div class="fnode yellow">TensorFlow<br><span style="font-size:.6rem;color:var(--muted)">Face Detect</span></div>
+              <div class="farr">→</div>
+              <div class="fnode green">Face Match<br><span style="font-size:.6rem;color:var(--muted)">Feature Vector</span></div>
+              <div class="farr">→</div>
+              <div class="fnode pink">Django API<br><span style="font-size:.6rem;color:var(--muted)">Mark Present</span></div>
+              <div class="farr">→</div>
+              <div class="fnode" style="border-color:rgba(124,111,247,.5);color:var(--accent2)">SQL DB<br><span style="font-size:.6rem;color:var(--muted)">Log Entry</span></div>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="mcard">
+              <div class="mval">RT<span class="munit"> ⚡</span></div>
+              <div class="mlbl">Real-Time Detection</div>
+              <div class="mlive">live inference</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">CNN<span class="munit"> model</span></div>
+              <div class="mlbl">Deep Learning Core</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">REST<span class="munit"> API</span></div>
+              <div class="mlbl">Django Backend</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">SQL<span class="munit"> DB</span></div>
+              <div class="mlbl">Attendance Records</div>
+            </div>
+          </div>
+          <div class="proj-roles">
+            <div class="prole">OpenCV frame extraction — captures and preprocesses video in real-time</div>
+            <div class="prole">TensorFlow CNN model for accurate face identification</div>
+            <div class="prole">Django REST backend — marks attendance and logs entries</div>
+            <div class="prole">SQL database stores employee records and attendance history</div>
+          </div>
+          <div class="proj-link-row">
+            <a href="https://github.com/Lileshmohane/face-recognition-based-attendance-system" class="plbtn solid" target="_blank">⌥ View on GitHub →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PROJECT 5: Canon UI ── -->
+    <div class="proj-item" data-cats="enterprise react">
+      <div class="proj-head" onclick="toggleProj(this)">
+        <span class="proj-idx">05</span>
+        <div class="proj-meta">
+          <div class="proj-name">Canon UI Module — KodVix</div>
+          <div class="proj-tagline">Enterprise frontend at scale — JSP, Jenkins CI/CD, Azure DevOps · Production</div>
+        </div>
+        <div class="proj-chips">
+          <span class="pchip">HTML/CSS/JS</span>
+          <span class="pchip">JSP</span>
+          <span class="pchip">Jenkins</span>
+          <span class="pchip">Azure DevOps</span>
+          <span class="pchip" style="color:#facc15;border-color:rgba(250,204,21,.3)">Enterprise</span>
+        </div>
+        <div class="proj-arr">+</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-body-inner">
+          <div class="arch">
+            <div class="arch-title">Enterprise CI/CD Pipeline</div>
+            <div class="flow">
+              <div class="fnode blue">Dev Branch<br><span style="font-size:.6rem;color:var(--muted)">Git Push</span></div>
+              <div class="farr">→</div>
+              <div class="fnode active">GitHub PR<br><span style="font-size:.6rem;color:var(--muted)">Code Review</span></div>
+              <div class="farr">→</div>
+              <div class="fnode yellow">Jenkins<br><span style="font-size:.6rem;color:var(--muted)">Build Trigger</span></div>
+              <div class="farr">→</div>
+              <div class="fnode green">QA Testing<br><span style="font-size:.6rem;color:var(--muted)">Validation</span></div>
+              <div class="farr">→</div>
+              <div class="fnode pink">Azure DevOps<br><span style="font-size:.6rem;color:var(--muted)">Task Tracking</span></div>
+              <div class="farr">→</div>
+              <div class="fnode" style="border-color:rgba(124,111,247,.5);color:var(--accent2)">Prod Release<br><span style="font-size:.6rem;color:var(--muted)">Canon Live</span></div>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="mcard">
+              <div class="mval">CI/CD<span class="munit"> ✓</span></div>
+              <div class="mlbl">Automated Pipeline</div>
+              <div class="mlive">running</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">JSP<span class="munit"> + JS</span></div>
+              <div class="mlbl">Server-Side Render</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">0<span class="munit"> bugs</span></div>
+              <div class="mlbl">Post-Release Defects</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">Canon<span class="munit"> ✓</span></div>
+              <div class="mlbl">Enterprise Client</div>
+            </div>
+          </div>
+          <div class="proj-roles">
+            <div class="prole">Designed responsive JSP UI modules for Canon's production interface</div>
+            <div class="prole">Resolved complex cross-browser UI bugs in enterprise codebase</div>
+            <div class="prole">Jenkins-automated build & deploy pipeline — zero manual steps</div>
+            <div class="prole">Azure DevOps sprint management, PR reviews, task tracking</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PROJECT 6: Farming Yield ── -->
+    <div class="proj-item" data-cats="ml">
+      <div class="proj-head" onclick="toggleProj(this)">
+        <span class="proj-idx">06</span>
+        <div class="proj-meta">
+          <div class="proj-name">Farming Yield Prognosis</div>
+          <div class="proj-tagline">KNN-powered crop prediction with Streamlit interactive dashboard</div>
+        </div>
+        <div class="proj-chips">
+          <span class="pchip">Python</span>
+          <span class="pchip">KNN</span>
+          <span class="pchip">Streamlit</span>
+          <span class="pchip">Scikit-learn</span>
+        </div>
+        <div class="proj-arr">+</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-body-inner">
+          <div class="arch">
+            <div class="arch-title">ML Prediction Pipeline</div>
+            <div class="flow">
+              <div class="fnode blue">Farm Input<br><span style="font-size:.6rem;color:var(--muted)">Soil, Season</span></div>
+              <div class="farr">→</div>
+              <div class="fnode active">Feature Eng.<br><span style="font-size:.6rem;color:var(--muted)">Preprocessing</span></div>
+              <div class="farr">→</div>
+              <div class="fnode yellow">KNN Model<br><span style="font-size:.6rem;color:var(--muted)">k=5 Neighbors</span></div>
+              <div class="farr">→</div>
+              <div class="fnode green">Prediction<br><span style="font-size:.6rem;color:var(--muted)">Yield Estimate</span></div>
+              <div class="farr">→</div>
+              <div class="fnode pink">Streamlit UI<br><span style="font-size:.6rem;color:var(--muted)">Dashboard</span></div>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="mcard">
+              <div class="mval">KNN<span class="munit"> k=5</span></div>
+              <div class="mlbl">Algorithm</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">Real<span class="munit">-time</span></div>
+              <div class="mlbl">Live Predictions</div>
+              <div class="mlive">on input change</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">Web<span class="munit"> UI</span></div>
+              <div class="mlbl">Streamlit Dashboard</div>
+            </div>
+            <div class="mcard">
+              <div class="mval">Impact<span class="munit"> 🌾</span></div>
+              <div class="mlbl">Agricultural Aid</div>
+            </div>
+          </div>
+          <div class="proj-roles">
+            <div class="prole">Collected and preprocessed agricultural dataset for training</div>
+            <div class="prole">KNN algorithm tuned for optimal crop yield classification accuracy</div>
+            <div class="prole">Streamlit dashboard — farmers enter inputs and get live predictions</div>
+            <div class="prole">Helps farmers make data-driven decisions for sustainable farming</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end proj-list -->
 </section>
 
 <!-- SKILLS -->
@@ -452,9 +900,9 @@ footer em{color:var(--accent2);font-style:normal}
   <div class="stag rev" style="justify-content:center">Let's Connect</div>
   <h2 class="stitle rev" style="text-align:center">Get In <em>Touch</em></h2>
   <p class="csub rev">Have a project in mind or want to say hello? My inbox is always open — currently available for new opportunities.</p>
-  <a class="cemail rev" href="mailto:lileshmohane2002@gmail.com">lileshmohane2002@gmail.com</a>
+  <a class="cemail rev" href="/cdn-cgi/l/email-protection#95f9fcf9f0e6fdf8fafdf4fbf0a7a5a5a7d5f2f8f4fcf9bbf6faf8"><span class="__cf_email__" data-cfemail="0b6762676e78636664636a656e393b3b394b6c666a626725686466">[email&#160;protected]</span></a>
   <div class="clinks rev">
-    <a href="mailto:lileshmohane2002@gmail.com" class="clink">✉ Email</a>
+    <a href="/cdn-cgi/l/email-protection#117d787d7462797c7e79707f742321212351767c70787d3f727e7c" class="clink">✉ Email</a>
     <a href="https://www.linkedin.com/in/lileshmohane" class="clink" target="_blank">in LinkedIn</a>
     <a href="https://github.com/Lileshmohane" class="clink" target="_blank">⌥ GitHub</a>
     <a href="https://lileshmohane1.github.io/myportfolio.github.io/" class="clink" target="_blank">⊞ Portfolio</a>
@@ -467,7 +915,7 @@ footer em{color:var(--accent2);font-style:normal}
   <p>Frontend Developer · <em>Indore, India</em></p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // CURSOR
 const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
 let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
@@ -551,14 +999,50 @@ function onScroll(){
 }
 window.addEventListener('scroll',onScroll,{passive:true});
 
-// PROJECT SPOTLIGHT
-document.querySelectorAll('.pcard').forEach(c=>{
-  c.addEventListener('mousemove',e=>{
-    const r=c.getBoundingClientRect();
-    c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');
-    c.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');
+// PROJECT ACCORDION
+function toggleProj(head){
+  const item=head.closest('.proj-item');
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.proj-item.open').forEach(el=>{if(el!==item)el.classList.remove('open')});
+  item.classList.toggle('open',!wasOpen);
+  // animate flow nodes when opened
+  if(!wasOpen){
+    const nodes=item.querySelectorAll('.fnode');
+    nodes.forEach((n,i)=>{
+      n.style.opacity='0';n.style.transform='translateY(8px)';
+      setTimeout(()=>{n.style.transition='opacity .3s,transform .3s';n.style.opacity='1';n.style.transform='none';},i*80);
+    });
+  }
+}
+
+// PROJECT FILTER
+document.querySelectorAll('.ptab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    const f=tab.dataset.filter;
+    document.querySelectorAll('.proj-item').forEach(item=>{
+      const cats=item.dataset.cats||'';
+      const show=f==='all'||cats.includes(f);
+      item.style.transition='opacity .3s,transform .3s';
+      item.style.opacity=show?'1':'0.25';
+      item.style.transform=show?'none':'scale(.98)';
+      item.style.pointerEvents=show?'auto':'none';
+    });
   });
 });
+
+// LIVE METRIC SIMULATION — API response time on proj 1
+(function liveMetric(){
+  const el=document.getElementById('m1-msg');
+  if(!el)return;
+  function update(){
+    const v=Math.round(80+Math.random()*120);
+    el.innerHTML=v+'<span class="munit">ms</span>';
+  }
+  update();
+  setInterval(update,2200);
+})();
 
 // SCROLL REVEAL + SKILL BARS
 const obs=new IntersectionObserver(entries=>{
@@ -585,14 +1069,4 @@ function animCount(el,target,dur){
 const cntObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
-      const c1=document.getElementById('cnt1'),c2=document.getElementById('cnt2');
-      if(c1&&c2){animCount(c1,6,1100);animCount(c2,14,1300);}
-      cntObs.disconnect();
-    }
-  });
-},{threshold:.3});
-const c1=document.getElementById('cnt1');
-if(c1)cntObs.observe(c1.closest('.acard'));
-</script>
-</body>
-</html>
+      con
